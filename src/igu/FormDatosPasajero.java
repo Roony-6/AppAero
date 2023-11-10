@@ -170,13 +170,17 @@ public class FormDatosPasajero extends javax.swing.JFrame {
         });
         jPanel1.add(btnLImpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 590, -1, -1));
 
+        btnGuardar.setBackground(new java.awt.Color(13, 160, 206));
+        btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("GUARDAR");
+        btnGuardar.setBorder(null);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 590, -1, -1));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 580, 170, -1));
 
         jPanel2.setBackground(new java.awt.Color(14, 150, 203));
         jPanel2.setForeground(new java.awt.Color(0, 0, 204));

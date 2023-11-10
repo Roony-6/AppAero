@@ -65,7 +65,12 @@ public void llenarArrayResumen0(){
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lbEncontrado = new javax.swing.JLabel();
+        lbContador = new javax.swing.JLabel();
+        btndecrementar = new javax.swing.JButton();
+        btnIncrementar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lbShowCosto = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jMenuItem1.setText("jMenuItem1");
@@ -93,9 +98,9 @@ public void llenarArrayResumen0(){
         cmboxDestinos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 255, 255)));
         jPanel1.add(cmboxDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 278, 170, 40));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel2.setText("FESCHAS DISPONIBLES");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setText("DESTINO");
@@ -112,7 +117,7 @@ public void llenarArrayResumen0(){
                 cmboxFechasActionPerformed(evt);
             }
         });
-        jPanel1.add(cmboxFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 190, 30));
+        jPanel1.add(cmboxFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 190, 30));
 
         btnBuscarFechas.setBackground(new java.awt.Color(13, 146, 206));
         btnBuscarFechas.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -150,7 +155,7 @@ public void llenarArrayResumen0(){
                 btnReservarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, 190, 30));
+        jPanel1.add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 580, 190, 30));
 
         jPanel2.setBackground(new java.awt.Color(14, 150, 203));
         jPanel2.setForeground(new java.awt.Color(0, 0, 204));
@@ -270,9 +275,42 @@ public void llenarArrayResumen0(){
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, -1));
         jPanel1.add(lbEncontrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 320, 120, 30));
 
-        jLabel10.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel10.setText("Este progtrama es hecho por Roony Roldan Cruz ");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 590, -1, -1));
+        lbContador.setBackground(new java.awt.Color(255, 255, 255));
+        lbContador.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        lbContador.setForeground(new java.awt.Color(153, 153, 153));
+        lbContador.setText("1");
+        jPanel1.add(lbContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 20, 60));
+
+        btndecrementar.setBackground(new java.awt.Color(255, 255, 255));
+        btndecrementar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menos.png"))); // NOI18N
+        btndecrementar.setBorder(null);
+        btndecrementar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndecrementarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btndecrementar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, 30, -1));
+
+        btnIncrementar.setBackground(new java.awt.Color(255, 255, 255));
+        btnIncrementar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mas.png"))); // NOI18N
+        btnIncrementar.setBorder(null);
+        btnIncrementar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncrementarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnIncrementar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 440, 30, -1));
+
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel10.setText("NUMERO DE PASAJEROS");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel11.setText("COSTO");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 420, -1, -1));
+
+        lbShowCosto.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jPanel1.add(lbShowCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 440, 60, 30));
 
         setJMenuBar(jMenuBar1);
 
@@ -301,7 +339,7 @@ public void llenarArrayResumen0(){
 
     private void btnBuscarFechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFechasActionPerformed
         // TODO add your handling code here:
-        
+        System.out.println("Encontré el vuelo");
         archVuelos.buscarFecha(btnReservar,cmboxDestinos, cmboxOrigenes, cmboxFechas,lbEncontrado);
     }//GEN-LAST:event_btnBuscarFechasActionPerformed
 
@@ -350,21 +388,67 @@ abtUs.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_cmboxFechasActionPerformed
 
+    private void btndecrementarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndecrementarActionPerformed
+//ArchVuelos objArchVuelo= new ArchVuelos();
+        int contadoramenos= getIdexPasajeros();
+        // int cost= objArchVuelo.getCosto();
+         
+        if(contadoramenos>1){
+             contadoramenos--;
+              setNumPasajeros(contadoramenos);
+  //            cost*=contadoramenos;
+        }
+        //lbShowCosto.setText(cost+" MXN");
+       
+    }//GEN-LAST:event_btndecrementarActionPerformed
+
+    private void btnIncrementarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncrementarActionPerformed
+    //    ArchVuelos objArchVuelo= new ArchVuelos();
+        int contadorMas= getIdexPasajeros();
+      //  int cost= objArchVuelo.getCosto();  
+
+  
+        if(contadorMas<7){
+            contadorMas++;
+            setNumPasajeros(contadorMas);
+        //    cost*=contadorMas;
+        }
+        //lbShowCosto.setText(cost+" MXN");
+            
+        
+        
+        
+    }//GEN-LAST:event_btnIncrementarActionPerformed
+
+    //Este metodo obtiene el numero de pasajeros seleccionasdos
+    public int getIdexPasajeros(){
+        int contador= Integer.parseInt(lbContador.getText());       
+        return contador;
+                
+    }
+    //Este metodo setea la etiqueta numero de pasajros
+    public void setNumPasajeros(int contador){
+       
+        lbContador.setText(String.valueOf(contador));
+    }
   
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAboutUs;
     private javax.swing.JButton btnBuscarFechas;
+    private javax.swing.JButton btnIncrementar;
     private javax.swing.JButton btnMiVuelo;
     private javax.swing.JButton btnReservar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVuelo;
+    private javax.swing.JButton btndecrementar;
     private javax.swing.JComboBox<String> cmboxDestinos;
     private javax.swing.JComboBox<String> cmboxFechas;
     private javax.swing.JComboBox<String> cmboxOrigenes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -378,7 +462,9 @@ abtUs.setVisible(true);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lbContador;
     private javax.swing.JLabel lbEncontrado;
+    private javax.swing.JLabel lbShowCosto;
     private javax.swing.JLabel lbmostrarDisponible;
     // End of variables declaration//GEN-END:variables
 }

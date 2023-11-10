@@ -16,6 +16,8 @@ public class ArchVuelos {
     private String claveAvion;
     private String modelo;
      private String fecha;
+     private String costoVuelo;
+     private int indice=0;
      //instanciamos un objeto de la clase controladora para acceder a la informacion leida
     ControladoraResv control= new ControladoraResv();
     //InterfazPrincipal mainInterface= new InterfazPrincipal();
@@ -32,12 +34,13 @@ public class ArchVuelos {
         this.destino= desrino;
                 
     }
-    public ArchVuelos(String claveAvion, String modelo, String fecha, String claveOrigen,String claveDestino){
+    public ArchVuelos(String claveAvion, String modelo, String fecha, String claveOrigen,String claveDestino, String costoVuelo){
         this.claveAvion=claveAvion;
         this.modelo=modelo;
         this.fecha= fecha;
         this.claveOrigen= claveOrigen;
         this.claveDestino= claveDestino;
+        this.costoVuelo=costoVuelo;
     }
 
     public ArchVuelos(String origen, String destino, String fecha) {
@@ -50,7 +53,7 @@ public class ArchVuelos {
         return "Clave Origen: "+claveOrigen+"\nOrigen: "+origen;
     }
     public String prueba(){
-        return "origen: "+origen+" destino: "+destino+" fecha: "+fecha;
+        return "origen: "+origen+" destino: "+destino+" fecha: "+fecha+ " costo:"+costoVuelo;
     }
     //metodo para mostrar los destinos disponibles leidos desde del archivo destinos
     public void setTokeonsOrigen(javax.swing.JComboBox<String> cmboxOrigenes){
@@ -88,17 +91,27 @@ public class ArchVuelos {
         System.out.println("origen selec clave:" +origenselectedClave);
         String destinoSelectedClave= control.arrayDestinos.get(selectedDestinoIndex).getClaveDestino();
         System.out.println("dest selec clve:"+destinoSelectedClave);
+        
       btnReservar.setEnabled(false);
         for(int i=0;i<control.arrayAviones.size();i++){
+        lbEncontrado.setText("");    
         if(origenselectedClave.equals(control.arrayAviones.get(i).getClaveOrigen())&& destinoSelectedClave.equals(control.arrayAviones.get(i).getClaveDestino())){
        cmboxFechas.removeAllItems();
-       lbEncontrado.setText("");
+       indice=i;
+            System.out.println("Indice de avion: "+indice);
        cmboxFechas.addItem(control.arrayAviones.get(i).getFecha());
        
        lbEncontrado.setText("Vuelo encontrado...");
       btnReservar.setEnabled(true);
         }
         }
+    }
+    
+    ////MODIFICAR
+    public int getCosto(){
+        String costoVuelo=control.arrayAviones.get(indice).getCostoVuelo();
+        int consto=Integer.parseInt(costoVuelo);
+        return consto;
     }
     
 
@@ -135,6 +148,11 @@ public class ArchVuelos {
     public String getFecha() {
         return fecha;
     }
+
+    public String getCostoVuelo() {
+        return costoVuelo;
+    }
+    
     
    
     

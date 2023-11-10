@@ -61,7 +61,8 @@ public class ControladoraResv {
                 String fecha=tokens.nextToken().trim();
                 String claveOrigen=tokens.nextToken().trim();
                 String claveDestino= tokens.nextToken().trim();
-                ArchVuelos objAvion=new ArchVuelos(claveAvion, modelo, fecha, claveOrigen, claveDestino);
+                String costoVuelo= tokens.nextToken().trim();
+                ArchVuelos objAvion=new ArchVuelos(claveAvion, modelo, fecha, claveOrigen, claveDestino,costoVuelo);
                 arrayAviones.add(objAvion);
             }
             

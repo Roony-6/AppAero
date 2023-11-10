@@ -2,8 +2,27 @@
 package igu;
 
 public class AboutUS extends javax.swing.JFrame {
+    
+    private String texto="Bienvenido a Burroswings, una aerolínea líder que se dedica a brindar experiencias de viaje excepcionales a nuestros pasajeros. Con un enfoque en la comodidad y la eficiencia, estamos comprometidos a proporcionar un servicio de reserva y gestión de vuelos de primera clase.\n" +
+"\n" +
+"En Burroswings, comprendemos que cada viaje es una oportunidad para crear momentos inolvidables. Nuestra plataforma intuitiva y fácil de usar te permite reservar vuelos con total confianza y comodidad. Ya sea que estés planificando una escapada de negocios o unas merecidas vacaciones, estamos aquí para hacer que tu experiencia de vuelo sea fluida y sin complicaciones.\n" +
+"\n" +
+"Nuestro equipo está compuesto por profesionales apasionados que se esfuerzan por superar tus expectativas en cada etapa del viaje. Desde la elección de tu destino hasta el aterrizaje final, te ofrecemos un servicio de alta calidad respaldado por una dedicación inquebrantable hacia la satisfacción del cliente.\n" +
+"\n" +
+"Agradecemos la confianza que depositas en nosotros al elegir a Burroswings como tu compañía de confianza para tus viajes aéreos. Esperamos ser parte de tus aventuras y ayudarte a llegar a donde deseas, de la manera más conveniente y segura posible.\n" +
+"\n" +
+"¡Bienvenido a bordo de Burroswings!\n" +
+"\n" +
+"";
+    
+    public String strHtml(String texto){
+        return "<html><p>"+texto+"</html></p>";
+    }
+    
+    
     public AboutUS() {
         initComponents();
+        lbAboutUs.setText(strHtml(texto));
     }
 
      
@@ -24,6 +43,7 @@ public class AboutUS extends javax.swing.JFrame {
         btnComoReservar = new javax.swing.JButton();
         btnMetodosDPago = new javax.swing.JButton();
         btnPrivacidad = new javax.swing.JButton();
+        lbAboutUs = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -165,6 +185,7 @@ public class AboutUS extends javax.swing.JFrame {
         btnPrivacidad.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnPrivacidad.setForeground(new java.awt.Color(255, 255, 255));
         btnPrivacidad.setText("PRIVACIDAD");
+        btnPrivacidad.setBorder(null);
         btnPrivacidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrivacidadActionPerformed(evt);
@@ -195,7 +216,16 @@ public class AboutUS extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 160, 510));
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 380, 210));
+
+        lbAboutUs.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbAboutUs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(lbAboutUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 710, 370));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(14, 150, 205));
+        jLabel1.setText("¿QUIÉNES SOMOS?");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,7 +259,7 @@ public class AboutUS extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAboutUsActionPerformed
-        btnAboutUs.setVisible(false);
+     
     }//GEN-LAST:event_btnAboutUsActionPerformed
 
     private void btnComoReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComoReservarActionPerformed
@@ -261,5 +291,6 @@ public class AboutUS extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lbAboutUs;
     // End of variables declaration//GEN-END:variables
 }
