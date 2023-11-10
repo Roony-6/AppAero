@@ -160,6 +160,7 @@ public void llenarArrayResumen0(){
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logtex.png"))); // NOI18N
 
         btnVuelo.setBackground(new java.awt.Color(14, 150, 203));
+        btnVuelo.setForeground(new java.awt.Color(255, 255, 255));
         btnVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/avionIcon.png"))); // NOI18N
         btnVuelo.setText("     VUELO");
         btnVuelo.setBorder(null);
@@ -170,6 +171,7 @@ public void llenarArrayResumen0(){
         });
 
         btnMiVuelo.setBackground(new java.awt.Color(14, 150, 203));
+        btnMiVuelo.setForeground(new java.awt.Color(255, 255, 255));
         btnMiVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/suitcase (1).png"))); // NOI18N
         btnMiVuelo.setText(" MI VUELO");
         btnMiVuelo.setBorder(null);
@@ -180,8 +182,9 @@ public void llenarArrayResumen0(){
         });
 
         btAboutUs.setBackground(new java.awt.Color(14, 150, 203));
+        btAboutUs.setForeground(new java.awt.Color(255, 255, 255));
         btAboutUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/info (1).png"))); // NOI18N
-        btAboutUs.setText(" About");
+        btAboutUs.setText("INFO");
         btAboutUs.setBorder(null);
         btAboutUs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,9 +341,9 @@ public void llenarArrayResumen0(){
     }//GEN-LAST:event_btnMiVueloActionPerformed
 
     private void btAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAboutUsActionPerformed
-     AboutUs formAbtus= new AboutUs();
-     formAbtus.setVisible(true);
-     formAbtus.setLocationRelativeTo(null);
+AboutUS abtUs= new AboutUS();
+abtUs.setVisible(true);
+        
     }//GEN-LAST:event_btAboutUsActionPerformed
 
     private void cmboxFechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmboxFechasActionPerformed
