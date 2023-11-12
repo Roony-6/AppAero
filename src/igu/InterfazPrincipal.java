@@ -16,10 +16,12 @@ FormDatosPasajero formDatosP= new FormDatosPasajero();
 public void agregarItems(){
      archVuelos.setTokeonsOrigen(cmboxOrigenes);
      archVuelos.setTokensDestinos(cmboxDestinos);
+     
      btnReservar.setEnabled(false);
 
    // archVuelos.setTokensAviones(cmboxFechas, cmboxDestinos, cmboxOrigenes);
 }
+String costo;
 
 public DatosPasajero arrayResumenVuelos[]= new DatosPasajero[1];
 public void llenarArrayResumen0(){
@@ -29,13 +31,19 @@ public void llenarArrayResumen0(){
     System.out.println("resumen destino:"+destino);
     String fecha= cmboxFechas.getSelectedItem().toString();
     System.out.println("resumen fecha: "+fecha);
+    String numPasajeros=lbContador.getText();
+    System.out.println("Num pasajeros: "+numPasajeros);
+   costo=lbShowCosto.getText();
+    System.out.println("costo: "+costo);
     
-   DatosPasajero objResumenVuelo= new DatosPasajero(origen, destino, fecha);
+   DatosPasajero objResumenVuelo= new DatosPasajero(origen, destino, fecha,numPasajeros, costo);
     arrayResumenVuelos[0]=objResumenVuelo;
-    System.out.println(""+arrayResumenVuelos[0].toString());
+    System.out.println(""+arrayResumenVuelos[0].resumenToString());
     
 }
-    
+    public void calcularPrecio(){
+        
+    }
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -71,6 +79,9 @@ public void llenarArrayResumen0(){
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lbShowCosto = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jMenuItem1.setText("jMenuItem1");
@@ -80,6 +91,7 @@ public void llenarArrayResumen0(){
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setToolTipText("");
         jPanel1.setPreferredSize(new java.awt.Dimension(1300, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -99,14 +111,17 @@ public void llenarArrayResumen0(){
         jPanel1.add(cmboxDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 278, 170, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel2.setText("FESCHAS DISPONIBLES");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
+        jLabel2.setText("FECHAS DISPONIBLES");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setText("DESTINO");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, -1, -1));
 
         cmboxFechas.setBackground(new java.awt.Color(241, 255, 255));
+        cmboxFechas.setToolTipText("bzfdbdfdn");
+        cmboxFechas.setBorder(null);
+        cmboxFechas.setOpaque(true);
         cmboxFechas.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmboxFechasItemStateChanged(evt);
@@ -305,12 +320,29 @@ public void llenarArrayResumen0(){
         jLabel10.setText("NUMERO DE PASAJEROS");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, -1, -1));
 
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(14, 248, 87));
         jLabel11.setText("COSTO");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 420, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 420, 60, -1));
 
-        lbShowCosto.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jPanel1.add(lbShowCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 440, 60, 30));
+        lbShowCosto.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel1.add(lbShowCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 440, 70, 30));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel12.setText("Vuelo");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel13.setText("Info personal");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel14.setText("Pago");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 200, -1, -1));
 
         setJMenuBar(jMenuBar1);
 
@@ -340,7 +372,10 @@ public void llenarArrayResumen0(){
     private void btnBuscarFechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFechasActionPerformed
         // TODO add your handling code here:
         System.out.println("Encontré el vuelo");
-        archVuelos.buscarFecha(btnReservar,cmboxDestinos, cmboxOrigenes, cmboxFechas,lbEncontrado);
+        archVuelos.buscarFecha(btnReservar,cmboxDestinos, cmboxOrigenes, cmboxFechas,lbEncontrado,lbShowCosto);
+        lbContador.setText("1");
+        costo=lbShowCosto.getText();
+        System.out.println("prueba metodo get costo:"+ costo);
     }//GEN-LAST:event_btnBuscarFechasActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -357,9 +392,11 @@ public void llenarArrayResumen0(){
        String origen = arrayResumenVuelos[0].getOrigen();
         String destino = arrayResumenVuelos[0].getDestino();
         String fecha = arrayResumenVuelos[0].getFecha();
+        String numPasajeros=arrayResumenVuelos[0].getNumeroPasajeros();
+        String costoTotal=arrayResumenVuelos[0].getCostoVuelo();
         
         // Actualizar los campos de texto en la interfaz FormDatosPasajero
-        formDatosP.actualizarResumen(origen, destino, fecha);
+        formDatosP.actualizarResumen(origen, destino, fecha,numPasajeros,costoTotal);
         
      
 
@@ -371,7 +408,7 @@ public void llenarArrayResumen0(){
     }//GEN-LAST:event_btnReservarMousePressed
 
     private void btnVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVueloActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(true);
     }//GEN-LAST:event_btnVueloActionPerformed
 
     private void btnMiVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiVueloActionPerformed
@@ -379,8 +416,10 @@ public void llenarArrayResumen0(){
     }//GEN-LAST:event_btnMiVueloActionPerformed
 
     private void btAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAboutUsActionPerformed
-AboutUS abtUs= new AboutUS();
+
+        AboutUS abtUs= new AboutUS();
 abtUs.setVisible(true);
+abtUs.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_btAboutUsActionPerformed
 
@@ -389,35 +428,38 @@ abtUs.setVisible(true);
     }//GEN-LAST:event_cmboxFechasActionPerformed
 
     private void btndecrementarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndecrementarActionPerformed
-//ArchVuelos objArchVuelo= new ArchVuelos();
+        int costoVuelo=Integer.parseInt(costo);
+        int totalAPagar=costoVuelo
+                ;
         int contadoramenos= getIdexPasajeros();
-        // int cost= objArchVuelo.getCosto();
-         
         if(contadoramenos>1){
+            System.out.println("Disminuí");
              contadoramenos--;
+             totalAPagar=costoVuelo*contadoramenos;
               setNumPasajeros(contadoramenos);
-  //            cost*=contadoramenos;
+              lbShowCosto.setText(String.valueOf(totalAPagar));
         }
-        //lbShowCosto.setText(cost+" MXN");
-       
+        
+        
     }//GEN-LAST:event_btndecrementarActionPerformed
 
     private void btnIncrementarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncrementarActionPerformed
-    //    ArchVuelos objArchVuelo= new ArchVuelos();
+       int costoVuelo=Integer.parseInt(costo);
         int contadorMas= getIdexPasajeros();
-      //  int cost= objArchVuelo.getCosto();  
-
-  
+        int totalAPagar=costoVuelo;
+        
         if(contadorMas<7){
-            contadorMas++;
-            setNumPasajeros(contadorMas);
-        //    cost*=contadorMas;
-        }
-        //lbShowCosto.setText(cost+" MXN");
+            System.out.println("Aumenté");
             
-        
-        
-        
+            contadorMas++;
+            totalAPagar=costoVuelo*contadorMas;
+                    
+              
+            setNumPasajeros(contadorMas);
+            lbShowCosto.setText(String.valueOf(totalAPagar));
+                    
+            
+        }
     }//GEN-LAST:event_btnIncrementarActionPerformed
 
     //Este metodo obtiene el numero de pasajeros seleccionasdos
@@ -449,6 +491,9 @@ abtUs.setVisible(true);
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

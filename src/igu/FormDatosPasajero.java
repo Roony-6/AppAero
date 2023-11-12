@@ -12,10 +12,12 @@ public class FormDatosPasajero extends javax.swing.JFrame {
     
     }
  
-   public void actualizarResumen(String origen, String destino, String fecha) {
+   public void actualizarResumen(String origen, String destino, String fecha,String numPasajeros,String costoTotal) {
         txtOrigen.setText(origen);
         txtDestino.setText(destino);
         txtFecha.setText(fecha);
+        lbNumPasajeros.setText(numPasajeros);
+        lbTotal.setText(costoTotal+" MXN");
     }
    
     @SuppressWarnings("unchecked")
@@ -52,6 +54,13 @@ public class FormDatosPasajero extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        lbNumPasajeros = new javax.swing.JLabel();
+        lbTotal = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,7 +70,7 @@ public class FormDatosPasajero extends javax.swing.JFrame {
 
         txtOrigen.setEditable(false);
         txtOrigen.setBackground(new java.awt.Color(255, 255, 255));
-        txtOrigen.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        txtOrigen.setFont(new java.awt.Font("Arial Black", 0, 10)); // NOI18N
         txtOrigen.setBorder(null);
         txtOrigen.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtOrigen.addActionListener(new java.awt.event.ActionListener() {
@@ -69,19 +78,19 @@ public class FormDatosPasajero extends javax.swing.JFrame {
                 txtOrigenActionPerformed(evt);
             }
         });
-        jPanel1.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 150, 30));
+        jPanel1.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 120, 30));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("ORIGEN:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 60, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 60, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("DESTINO:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 60, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 60, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setText("FECHA:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 50, 30));
+        jLabel3.setText("TOTAL");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 220, 50, 30));
 
         btnModificar.setBackground(new java.awt.Color(13, 160, 206));
         btnModificar.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -92,17 +101,17 @@ public class FormDatosPasajero extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 140, 30));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 250, 140, 30));
 
         jLabel4.setBackground(new java.awt.Color(51, 102, 255));
         jLabel4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(16, 160, 206));
         jLabel4.setText("INFORMACION PERSONAL");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, -1, -1));
 
         txtFecha.setEditable(false);
         txtFecha.setBackground(new java.awt.Color(255, 255, 255));
-        txtFecha.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        txtFecha.setFont(new java.awt.Font("Arial Black", 0, 10)); // NOI18N
         txtFecha.setBorder(null);
         txtFecha.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtFecha.addActionListener(new java.awt.event.ActionListener() {
@@ -110,11 +119,11 @@ public class FormDatosPasajero extends javax.swing.JFrame {
                 txtFechaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 150, 30));
+        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 100, 30));
 
         txtDestino.setEditable(false);
         txtDestino.setBackground(new java.awt.Color(255, 255, 255));
-        txtDestino.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        txtDestino.setFont(new java.awt.Font("Arial Black", 0, 10)); // NOI18N
         txtDestino.setBorder(null);
         txtDestino.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtDestino.setSelectedTextColor(new java.awt.Color(0, 0, 0));
@@ -123,20 +132,20 @@ public class FormDatosPasajero extends javax.swing.JFrame {
                 txtDestinoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 160, 30));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 910, 10));
+        jPanel1.add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 110, 30));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 910, 10));
 
         jLabel6.setText("NOMBRE(s)");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
 
         jLabel7.setText("APELLIDOS");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, -1, -1));
 
         jLabel8.setText("TELEFONO");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 540, -1, -1));
 
         jLabel9.setText("EDAD");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, -1, -1));
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,24 +160,27 @@ public class FormDatosPasajero extends javax.swing.JFrame {
                 txtNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 410, -1));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 410, -1));
 
         txtApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidosActionPerformed(evt);
             }
         });
-        jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 410, -1));
-        jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 407, -1));
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 407, -1));
+        jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 410, -1));
+        jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 407, -1));
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, 407, -1));
 
+        btnLImpiar.setBackground(new java.awt.Color(13, 176, 200));
+        btnLImpiar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnLImpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/limpieza-de-datos.png"))); // NOI18N
         btnLImpiar.setText("LIMPIAR");
         btnLImpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLImpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLImpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 590, -1, -1));
+        jPanel1.add(btnLImpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 620, -1, -1));
 
         btnGuardar.setBackground(new java.awt.Color(13, 160, 206));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -180,7 +192,7 @@ public class FormDatosPasajero extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 580, 170, -1));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 620, 170, -1));
 
         jPanel2.setBackground(new java.awt.Color(14, 150, 203));
         jPanel2.setForeground(new java.awt.Color(0, 0, 204));
@@ -251,7 +263,32 @@ public class FormDatosPasajero extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(16, 160, 206));
         jLabel14.setText("RESUMEN DE VUELO");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setText("Completado");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel15.setText("Pago");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 150, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel16.setText("Info personal");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel17.setText("FECHA:");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 50, 30));
+        jPanel1.add(lbNumPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 30, 30));
+        jPanel1.add(lbTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 240, 80, 40));
+
+        jLabel18.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel18.setText("PASAJEROS:");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -296,9 +333,15 @@ InterfazPrincipal interPrin= new InterfazPrincipal();
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
+        
   DatosPasajero objDatos= new DatosPasajero();
   getDatosPasajerosToArray();
   objDatos.getDatosPasajeros(arrayDatosPasajero);
+  Payment formPayment= new Payment();
+  formPayment.setVisible(true);
+  formPayment.setLocationRelativeTo(null);
+          
+  
   
         
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -346,7 +389,7 @@ InterfazPrincipal interPrin= new InterfazPrincipal();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreKeyTyped
 
-    
+    //////////////////////////////////////////////////////////////////
     public DatosPasajero arrayDatosPasajero[]= new DatosPasajero[1];
     
 public void getDatosPasajerosToArray(){
@@ -372,9 +415,14 @@ public void getDatosPasajerosToArray(){
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -384,6 +432,8 @@ public void getDatosPasajerosToArray(){
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lbNumPasajeros;
+    private javax.swing.JLabel lbTotal;
     private javax.swing.JLabel lbmostrarDisponible;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtDestino;

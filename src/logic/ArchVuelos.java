@@ -81,8 +81,8 @@ public class ArchVuelos {
     }
   // metodo que busca y muestra los vuelos disponibles de acuerdo al Origen y Destino seleccionado
     //////
-    public void buscarFecha(javax.swing.JButton btnReservar,javax.swing.JComboBox<String> cmboxDestinos,javax.swing.JComboBox<String> cmboxOrigenes,javax.swing.JComboBox<String> cmboxFechas, javax.swing.JLabel lbEncontrado){
-     control.leerArchivoAviones();
+    public void buscarFecha(javax.swing.JButton btnReservar,javax.swing.JComboBox<String> cmboxDestinos,javax.swing.JComboBox<String> cmboxOrigenes,javax.swing.JComboBox<String> cmboxFechas, javax.swing.JLabel lbEncontrado,javax.swing.JLabel lbShowCosto){
+        control.leerArchivoAviones();
         int selectedOrigenIndex= cmboxOrigenes.getSelectedIndex();
         System.out.println("indice origen selecconado: "+selectedOrigenIndex);
         int selectedDestinoIndex=cmboxDestinos.getSelectedIndex();
@@ -91,23 +91,27 @@ public class ArchVuelos {
         System.out.println("origen selec clave:" +origenselectedClave);
         String destinoSelectedClave= control.arrayDestinos.get(selectedDestinoIndex).getClaveDestino();
         System.out.println("dest selec clve:"+destinoSelectedClave);
-        
+        String costoVuelo;
       btnReservar.setEnabled(false);
         for(int i=0;i<control.arrayAviones.size();i++){
+            
         lbEncontrado.setText("");    
         if(origenselectedClave.equals(control.arrayAviones.get(i).getClaveOrigen())&& destinoSelectedClave.equals(control.arrayAviones.get(i).getClaveDestino())){
        cmboxFechas.removeAllItems();
        indice=i;
+       costoVuelo=control.arrayAviones.get(i).getCostoVuelo();
             System.out.println("Indice de avion: "+indice);
        cmboxFechas.addItem(control.arrayAviones.get(i).getFecha());
        
+       
        lbEncontrado.setText("Vuelo encontrado...");
+       lbShowCosto.setText(costoVuelo);
       btnReservar.setEnabled(true);
         }
         }
     }
     
-    ////MODIFICAR
+    ////MODIFICAR ESTE METODO
     public int getCosto(){
         String costoVuelo=control.arrayAviones.get(indice).getCostoVuelo();
         int consto=Integer.parseInt(costoVuelo);

@@ -4,7 +4,7 @@ package igu;
 public class AboutUS extends javax.swing.JFrame {
     
     private String texto="Bienvenido a Burroswings, una aerolínea líder que se dedica a brindar experiencias de viaje excepcionales a nuestros pasajeros. Con un enfoque en la comodidad y la eficiencia, estamos comprometidos a proporcionar un servicio de reserva y gestión de vuelos de primera clase.\n" +
-"\n" +
+"\n" +"\n"+
 "En Burroswings, comprendemos que cada viaje es una oportunidad para crear momentos inolvidables. Nuestra plataforma intuitiva y fácil de usar te permite reservar vuelos con total confianza y comodidad. Ya sea que estés planificando una escapada de negocios o unas merecidas vacaciones, estamos aquí para hacer que tu experiencia de vuelo sea fluida y sin complicaciones.\n" +
 "\n" +
 "Nuestro equipo está compuesto por profesionales apasionados que se esfuerzan por superar tus expectativas en cada etapa del viaje. Desde la elección de tu destino hasta el aterrizaje final, te ofrecemos un servicio de alta calidad respaldado por una dedicación inquebrantable hacia la satisfacción del cliente.\n" +
@@ -16,7 +16,7 @@ public class AboutUS extends javax.swing.JFrame {
 "";
     
     public String strHtml(String texto){
-        return "<html><p>"+texto+"</html></p>";
+        return "<html><p><justify>"+texto+"</justify></p></html>";
     }
     
     
@@ -45,6 +45,7 @@ public class AboutUS extends javax.swing.JFrame {
         btnPrivacidad = new javax.swing.JButton();
         lbAboutUs = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,7 +55,8 @@ public class AboutUS extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(14, 150, 203));
         jPanel3.setForeground(new java.awt.Color(0, 0, 204));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/burrologo.png"))); // NOI18N
+        jLabel4.setBackground(new java.awt.Color(14, 150, 203));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/burro.png"))); // NOI18N
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logtex.png"))); // NOI18N
 
@@ -115,7 +117,7 @@ public class AboutUS extends javax.swing.JFrame {
                         .addComponent(btnVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnMiVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                         .addComponent(btAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -227,6 +229,9 @@ public class AboutUS extends javax.swing.JFrame {
         jLabel1.setText("¿QUIÉNES SOMOS?");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
 
+        jLabel2.setText("jLabel2");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 200, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -242,7 +247,8 @@ public class AboutUS extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVueloActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+     
     }//GEN-LAST:event_btnVueloActionPerformed
 
     private void btnMiVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiVueloActionPerformed
@@ -286,6 +292,7 @@ public class AboutUS extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVuelo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
