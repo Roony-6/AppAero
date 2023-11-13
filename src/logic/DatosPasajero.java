@@ -12,6 +12,7 @@ public class DatosPasajero {
     private String telefono;
     private String numeroPasajeros;
     private String costoVuelo;
+    private String clavePasajero;
     public DatosPasajero(){        
     }
     /////////////////////////////////////////////NOTA MUY IMPORTANTE//////////////////////////////////////////////////////
@@ -27,14 +28,15 @@ public class DatosPasajero {
         
     }
 
-    public DatosPasajero(String nombre, String apellido, String edad, String telefono) {
+    public DatosPasajero(String clavePasajero,String nombre, String apellido, String edad, String telefono, String numerPasajeros) {
+       this.clavePasajero=clavePasajero;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.telefono = telefono;
     }
     public String toString(){
-        return nombre +","+apellido+","+edad +","+telefono;
+        return clavePasajero+","+nombre +","+apellido+","+edad +","+telefono;
     }
 
     public String resumenToString(){
@@ -92,6 +94,10 @@ public class DatosPasajero {
 
     public String getNumeroPasajeros() {
         return numeroPasajeros;
+    }
+
+    public String getClavePasajero() {
+        return clavePasajero;
     }
 
     public String getCostoVuelo() {

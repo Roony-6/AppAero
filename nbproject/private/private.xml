@@ -6,12 +6,14 @@
             <file>file:/E:/Avance/AppAerolinea/src/logic/ArchVuelos.java</file>
             <file>file:/E:/Avance/AppAerolinea/src/persistence/ControladoraDatosPasajero.java</file>
             <file>file:/E:/Avance/AppAerolinea/src/igu/Payment.java</file>
+            <file>file:/E:/Avance/AppAerolinea/src/igu/PnlPagoTarjeta.java</file>
+            <file>file:/E:/Avance/AppAerolinea/src/logic/RastreoVuelo.java</file>
+            <file>file:/E:/Avance/AppAerolinea/src/igu/PnlPagoEfectivo.java</file>
             <file>file:/E:/Avance/AppAerolinea/src/logic/DatosPasajero.java</file>
             <file>file:/E:/Avance/AppAerolinea/src/igu/InterfazPrincipal.java</file>
-            <file>file:/E:/Avance/AppAerolinea/src/igu/AboutUS.java</file>
+            <file>file:/E:/Avance/AppAerolinea/src/igu/RastrearVuelo.java</file>
             <file>file:/E:/Avance/AppAerolinea/src/igu/FormDatosPasajero.java</file>
             <file>file:/E:/Avance/AppAerolinea/src/persistence/ControladoraResv.java</file>
-            <file>file:/E:/Avance/AppAerolinea/src/logic/Main.java</file>
         </group>
     </open-files>
 </project-private>

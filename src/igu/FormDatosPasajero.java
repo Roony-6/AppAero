@@ -388,17 +388,26 @@ InterfazPrincipal interPrin= new InterfazPrincipal();
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreKeyTyped
-
+/////Metodo para generar una clave
+    public String generarClave(String nombre, String apellido, String edad){
+        char inicialNombre= nombre.charAt(0);
+        char finalNombre=nombre.charAt(nombre.length()-1);
+        char inicialApellido=apellido.charAt(0);
+        char finalApellido= apellido.charAt(apellido.length()-1);
+        String clavePasajero=""+inicialNombre+inicialApellido+finalNombre+finalApellido+edad;
+        return clavePasajero;
+    }
     //////////////////////////////////////////////////////////////////
     public DatosPasajero arrayDatosPasajero[]= new DatosPasajero[1];
     
 public void getDatosPasajerosToArray(){
+    
     String nombre= txtNombre.getText().trim().toUpperCase();
     String apellido=txtApellidos.getText().trim().toUpperCase();
     String edad=txtEdad.getText().trim();
     String telefono=txtTelefono.getText().trim();
-    
-    DatosPasajero objDatosPas= new DatosPasajero(nombre, apellido, edad, telefono);
+    String clavePasajero=generarClave(nombre, apellido, edad);
+    DatosPasajero objDatosPas= new DatosPasajero(clavePasajero,nombre, apellido, edad, telefono,null);
     arrayDatosPasajero[0]=objDatosPas;
      System.out.println("Datos del pasajero guardados en arrayResumenVuelos");
     System.out.println(objDatosPas.toString());

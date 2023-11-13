@@ -412,7 +412,8 @@ public void llenarArrayResumen0(){
     }//GEN-LAST:event_btnVueloActionPerformed
 
     private void btnMiVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiVueloActionPerformed
-        // TODO add your handling code here:
+       RastrearVuelo objRastrearVuelo= new RastrearVuelo();
+       objRastrearVuelo.setVisible(true);
     }//GEN-LAST:event_btnMiVueloActionPerformed
 
     private void btAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAboutUsActionPerformed
