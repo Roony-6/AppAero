@@ -5,6 +5,7 @@ import igu.FormDatosPasajero;
 import java.lang.reflect.Array;
 import persistence.ControladoraResv;
 import igu.InterfazPrincipal;
+import igu.Payment;
 import java.util.ArrayList;
 
 public class ArchVuelos {
@@ -21,7 +22,8 @@ public class ArchVuelos {
      //instanciamos un objeto de la clase controladora para acceder a la informacion leida
     ControladoraResv control= new ControladoraResv();
     //InterfazPrincipal mainInterface= new InterfazPrincipal();
-            
+          
+    public String claveAvionSelec;
     
     //constructores
     public ArchVuelos(){
@@ -81,6 +83,7 @@ public class ArchVuelos {
     }
   // metodo que busca y muestra los vuelos disponibles de acuerdo al Origen y Destino seleccionado
     //////
+    Payment o = new Payment();
     public void buscarFecha(javax.swing.JButton btnReservar,javax.swing.JComboBox<String> cmboxDestinos,javax.swing.JComboBox<String> cmboxOrigenes,javax.swing.JComboBox<String> cmboxFechas, javax.swing.JLabel lbEncontrado,javax.swing.JLabel lbShowCosto){
         control.leerArchivoAviones();
         int selectedOrigenIndex= cmboxOrigenes.getSelectedIndex();
@@ -92,7 +95,13 @@ public class ArchVuelos {
         String destinoSelectedClave= control.arrayDestinos.get(selectedDestinoIndex).getClaveDestino();
         System.out.println("dest selec clve:"+destinoSelectedClave);
         String costoVuelo;
+      String claveAvion;
       btnReservar.setEnabled(false);
+      
+
+       
+               
+              
         for(int i=0;i<control.arrayAviones.size();i++){
             
         lbEncontrado.setText("");    
@@ -100,6 +109,11 @@ public class ArchVuelos {
        cmboxFechas.removeAllItems();
        indice=i;
        costoVuelo=control.arrayAviones.get(i).getCostoVuelo();
+       claveAvionSelec=control.arrayAviones.get(i).getClaveAvion();
+            System.out.println("Clave Avion "+claveAvionSelec);
+            claveAvion=control.arrayAviones.get(i).getClaveAvion();
+            
+            
             System.out.println("Indice de avion: "+indice);
        cmboxFechas.addItem(control.arrayAviones.get(i).getFecha());
        

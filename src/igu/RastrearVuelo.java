@@ -39,6 +39,7 @@ public class RastrearVuelo extends javax.swing.JFrame {
         btnModificarDatosPasajeros = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,9 +144,9 @@ public class RastrearVuelo extends javax.swing.JFrame {
         jLabel1.setText("RASTREA TU VUELO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 170, -1));
 
-        jLabel2.setText("INTRODUCE LA CLAVE");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
-        jPanel1.add(txtClavePasajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 140, -1));
+        jLabel2.setText("INTRODUCE LA CLAVE DEL VUELO");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        jPanel1.add(txtClavePasajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 160, -1));
 
         btnRastrear.setText("RASTREAR");
         btnRastrear.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), null));
@@ -154,10 +155,10 @@ public class RastrearVuelo extends javax.swing.JFrame {
                 btnRastrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRastrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 130, 30));
+        jPanel1.add(btnRastrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 130, 30));
 
         lbVueloEncontrado.setText("jLabel3");
-        jPanel1.add(lbVueloEncontrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 160, 50));
+        jPanel1.add(lbVueloEncontrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 160, 160, 50));
 
         btnVer.setText("VER");
         btnVer.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +166,7 @@ public class RastrearVuelo extends javax.swing.JFrame {
                 btnVerActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, -1, -1));
+        jPanel1.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, -1, -1));
 
         jLabel3.setText("Origen");
 
@@ -199,7 +200,7 @@ public class RastrearVuelo extends javax.swing.JFrame {
                     .addGroup(pnlDatosReservaLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 377, Short.MAX_VALUE)
                         .addGroup(pnlDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jLabel9))
@@ -232,7 +233,7 @@ public class RastrearVuelo extends javax.swing.JFrame {
                 .addContainerGap(90, Short.MAX_VALUE))
         );
 
-        jPanel1.add(pnlDatosReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 630, 330));
+        jPanel1.add(pnlDatosReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 760, 330));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,16 +243,20 @@ public class RastrearVuelo extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVueloActionPerformed
-        this.setVisible(true);
+
+        
+        this.setVisible(false);
+        InterfazPrincipal objectInterfazPrincipal=new InterfazPrincipal();
+        objectInterfazPrincipal.setVisible(true);
+        objectInterfazPrincipal.setLocationRelativeTo(null);
+         objectInterfazPrincipal.agregarItems();//con metodo de la interfaz principal agregamos informacion obtenida de los archivos leidos 
     }//GEN-LAST:event_btnVueloActionPerformed
 
     private void btnMiVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiVueloActionPerformed
@@ -259,7 +264,7 @@ public class RastrearVuelo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMiVueloActionPerformed
 
     private void btAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAboutUsActionPerformed
-
+        this.setVisible(false);
         AboutUS abtUs= new AboutUS();
         abtUs.setVisible(true);
         abtUs.setLocationRelativeTo(null);

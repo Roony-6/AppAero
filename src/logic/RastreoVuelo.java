@@ -14,7 +14,7 @@ public class RastreoVuelo extends DatosPasajero{
          boolean encontrado=false;
          while((linea=br.readLine())!=null){
              StringTokenizer tokens= new StringTokenizer(linea,",");
-                         String clave=tokens.nextToken().trim();
+             String clave=tokens.nextToken().trim();
              String nombre=tokens.nextToken().trim();
              String apellido=tokens.nextToken().trim();
              String edad=tokens.nextToken().trim();
@@ -26,9 +26,9 @@ public class RastreoVuelo extends DatosPasajero{
                  DatosPasajero obj= new DatosPasajero(clavePasajero, nombre, apellido, edad, telefono, null);
                  System.out.println(obj.toString());
                  arrayPasajeros[0]=obj;
+                 System.out.println("para confirmarmar que se lleno el array:"+arrayPasajeros[0].toString());
                  lbVueloEncontrado.setText("Vuelo encontrado");
                  btnVer.setVisible(true);
-                 
                  break;
                  
              }else{
@@ -36,7 +36,6 @@ public class RastreoVuelo extends DatosPasajero{
                  lbVueloEncontrado.setText("Vuelo no encontrado");
                          
                              }
- 
          }
          
      }   catch(Throwable e){

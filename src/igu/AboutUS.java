@@ -23,6 +23,7 @@ public class AboutUS extends javax.swing.JFrame {
     public AboutUS() {
         initComponents();
         lbAboutUs.setText(strHtml(texto));
+        
     }
 
      
@@ -43,11 +44,11 @@ public class AboutUS extends javax.swing.JFrame {
         btnComoReservar = new javax.swing.JButton();
         btnMetodosDPago = new javax.swing.JButton();
         btnPrivacidad = new javax.swing.JButton();
+        pnlContenido = new javax.swing.JPanel();
         lbAboutUs = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -199,8 +200,8 @@ public class AboutUS extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnAboutUs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnComoReservar, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-            .addComponent(btnMetodosDPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnComoReservar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnMetodosDPago, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
             .addComponent(btnPrivacidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
@@ -221,16 +222,25 @@ public class AboutUS extends javax.swing.JFrame {
 
         lbAboutUs.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbAboutUs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel2.add(lbAboutUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 710, 370));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(14, 150, 205));
-        jLabel1.setText("¿QUIÉNES SOMOS?");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+        javax.swing.GroupLayout pnlContenidoLayout = new javax.swing.GroupLayout(pnlContenido);
+        pnlContenido.setLayout(pnlContenidoLayout);
+        pnlContenidoLayout.setHorizontalGroup(
+            pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlContenidoLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(lbAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(223, Short.MAX_VALUE))
+        );
+        pnlContenidoLayout.setVerticalGroup(
+            pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlContenidoLayout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(lbAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
 
-        jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 200, -1, -1));
+        jPanel2.add(pnlContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 900, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -248,11 +258,20 @@ public class AboutUS extends javax.swing.JFrame {
 
     private void btnVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVueloActionPerformed
         this.setVisible(false);
+        InterfazPrincipal objectInterfazPrincipal= new InterfazPrincipal();
+        objectInterfazPrincipal.setVisible(true);
+        objectInterfazPrincipal.setLocationRelativeTo(null);
+         objectInterfazPrincipal.agregarItems();//con metodo de la interfaz principal agregamos informacion obtenida de los archivos leidos 
      
     }//GEN-LAST:event_btnVueloActionPerformed
 
     private void btnMiVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiVueloActionPerformed
-        // TODO add your handling code here:
+
+     this.setVisible(false);
+     RastrearVuelo objedctRastreoVuelo= new RastrearVuelo();
+     objedctRastreoVuelo.setVisible(true);
+     objedctRastreoVuelo.setLocationRelativeTo(null);
+     
     }//GEN-LAST:event_btnMiVueloActionPerformed
 
     private void btAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAboutUsActionPerformed
@@ -291,13 +310,12 @@ public class AboutUS extends javax.swing.JFrame {
     private javax.swing.JButton btnPrivacidad;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVuelo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lbAboutUs;
+    private javax.swing.JPanel pnlContenido;
     // End of variables declaration//GEN-END:variables
 }

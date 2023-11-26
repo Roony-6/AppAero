@@ -2,8 +2,10 @@
 package igu;
 import logic.ArchVuelos;
 import logic.DatosPasajero;
+
 import igu.*;
 import java.awt.event.KeyEvent;
+import logic.Reserva;
 public class FormDatosPasajero extends javax.swing.JFrame {
     
     public FormDatosPasajero() {
@@ -11,7 +13,10 @@ public class FormDatosPasajero extends javax.swing.JFrame {
         
     
     }
- 
+ //////////////////
+    String claveavion="";
+    String clavePasajerooo="";
+    
    public void actualizarResumen(String origen, String destino, String fecha,String numPasajeros,String costoTotal) {
         txtOrigen.setText(origen);
         txtDestino.setText(destino);
@@ -63,6 +68,7 @@ public class FormDatosPasajero extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1036, 550));
@@ -90,7 +96,7 @@ public class FormDatosPasajero extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("TOTAL");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 220, 50, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, 50, 30));
 
         btnModificar.setBackground(new java.awt.Color(13, 160, 206));
         btnModificar.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -294,13 +300,11 @@ public class FormDatosPasajero extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1060, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
         );
 
         pack();
@@ -330,21 +334,33 @@ InterfazPrincipal interPrin= new InterfazPrincipal();
     private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidosActionPerformed
-
+/////BOTON GUARDAR
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         
-  DatosPasajero objDatos= new DatosPasajero();
+        Payment objectPayment= new Payment();
   getDatosPasajerosToArray();
-  objDatos.getDatosPasajeros(arrayDatosPasajero);
-  Payment formPayment= new Payment();
-  formPayment.setVisible(true);
-  formPayment.setLocationRelativeTo(null);
+  DatosPasajero objDatos= new DatosPasajero();
+ 
+objDatos.getDatosPasajeros(arrayDatosPasajeroFormDatosPasajero);
+//claveavion=getClaveAvion();
+System.out.println("clave: "+claveavion);
+objectPayment.setClaveAvionn(claveavion);
+objectPayment.setClavePas(clavePasajerooo);
+ objectPayment.setVisible(true);
+ objectPayment.setLocationRelativeTo(null);
+ 
+ 
+  
           
   
   
         
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    public void setClaveavion(String claveavion) {
+        this.claveavion = claveavion;
+    }
 
     private void btnLImpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLImpiarActionPerformed
         txtNombre.setText("");
@@ -376,18 +392,24 @@ InterfazPrincipal interPrin= new InterfazPrincipal();
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
        // while(){
          //   btnGuardar.setEnabled(true);
-                                
-                    
-                    
-                    
-                    
-            
-        
+ 
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreKeyTyped
+
+    ////preuba para obtener calve del avion
+   // public String getClaveAvion(){
+        
+        //InterfazPrincipal mainI= new InterfazPrincipal();
+     //String CA=mainI.claveAvion;
+       // System.out.println("Obtube la clave: "+CA);
+        //return CA;
+        
+   // }
+    
+    
 /////Metodo para generar una clave
     public String generarClave(String nombre, String apellido, String edad){
         char inicialNombre= nombre.charAt(0);
@@ -397,21 +419,28 @@ InterfazPrincipal interPrin= new InterfazPrincipal();
         String clavePasajero=""+inicialNombre+inicialApellido+finalNombre+finalApellido+edad;
         return clavePasajero;
     }
-    //////////////////////////////////////////////////////////////////
-    public DatosPasajero arrayDatosPasajero[]= new DatosPasajero[1];
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public DatosPasajero arrayDatosPasajeroFormDatosPasajero[]= new DatosPasajero[1];
     
 public void getDatosPasajerosToArray(){
+    //Payment objectPayment= new Payment();
     
     String nombre= txtNombre.getText().trim().toUpperCase();
     String apellido=txtApellidos.getText().trim().toUpperCase();
     String edad=txtEdad.getText().trim();
     String telefono=txtTelefono.getText().trim();
     String clavePasajero=generarClave(nombre, apellido, edad);
+    clavePasajerooo=clavePasajero;
+    
+    //objectPayment.setClavePas(clavePasajero);
     DatosPasajero objDatosPas= new DatosPasajero(clavePasajero,nombre, apellido, edad, telefono,null);
-    arrayDatosPasajero[0]=objDatosPas;
-     System.out.println("Datos del pasajero guardados en arrayResumenVuelos");
+    arrayDatosPasajeroFormDatosPasajero[0]=objDatosPas;
+
+  
+    System.out.println("Datos del pasajero guardados en arrayResumenVuelos");
     System.out.println(objDatosPas.toString());
 }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import logic.*;
 public class InterfazPrincipal extends javax.swing.JFrame {
 
+    String claveAvion="";
     
     public InterfazPrincipal() {
         initComponents();
@@ -394,7 +395,11 @@ public void llenarArrayResumen0(){
         String fecha = arrayResumenVuelos[0].getFecha();
         String numPasajeros=arrayResumenVuelos[0].getNumeroPasajeros();
         String costoTotal=arrayResumenVuelos[0].getCostoVuelo();
-        
+        /////////////
+        claveAvion=archVuelos.claveAvionSelec;
+        formDatosP.setClaveavion(claveAvion);
+        System.out.println(claveAvion+" prueba de que obtuve la claveAvion......");
+        System.out.println("obtenida correctamente....");
         // Actualizar los campos de texto en la interfaz FormDatosPasajero
         formDatosP.actualizarResumen(origen, destino, fecha,numPasajeros,costoTotal);
         
@@ -408,16 +413,18 @@ public void llenarArrayResumen0(){
     }//GEN-LAST:event_btnReservarMousePressed
 
     private void btnVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVueloActionPerformed
-        this.setVisible(true);
+        
     }//GEN-LAST:event_btnVueloActionPerformed
 
     private void btnMiVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiVueloActionPerformed
-       RastrearVuelo objRastrearVuelo= new RastrearVuelo();
+this.setVisible(false);
+        RastrearVuelo objRastrearVuelo= new RastrearVuelo();
        objRastrearVuelo.setVisible(true);
+       objRastrearVuelo.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnMiVueloActionPerformed
 
     private void btAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAboutUsActionPerformed
-
+this.setVisible(false);
         AboutUS abtUs= new AboutUS();
 abtUs.setVisible(true);
 abtUs.setLocationRelativeTo(null);
