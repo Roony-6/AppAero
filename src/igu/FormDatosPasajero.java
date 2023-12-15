@@ -1,5 +1,4 @@
-
-package igu;
+package igu;            
 import logic.ArchVuelos;
 import logic.DatosPasajero;
 
@@ -320,6 +319,9 @@ InterfazPrincipal interPrin= new InterfazPrincipal();
   // interPrin.arrayResumenVuelos.clear();
       //  System.out.println("Se limpio el resumen");
         this.setVisible(false);
+        interPrin.setVisible(true);
+        interPrin.setLocationRelativeTo(null);
+        interPrin.agregarItems();
 
     }//GEN-LAST:event_btnModificarActionPerformed
 
@@ -347,9 +349,10 @@ objDatos.getDatosPasajeros(arrayDatosPasajeroFormDatosPasajero);
 System.out.println("clave: "+claveavion);
 objectPayment.setClaveAvionn(claveavion);
 objectPayment.setClavePas(clavePasajerooo);
+
  objectPayment.setVisible(true);
  objectPayment.setLocationRelativeTo(null);
- 
+this.setVisible(false);
  
   
           

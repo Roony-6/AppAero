@@ -1,5 +1,9 @@
 package igu;
 
+import java.awt.BorderLayout;
+import java.util.Locale;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import logic.RastreoVuelo;
 
 public class RastrearVuelo extends javax.swing.JFrame {
@@ -7,8 +11,8 @@ public class RastrearVuelo extends javax.swing.JFrame {
     
     public RastrearVuelo() {
         initComponents();
-        btnVer.setVisible(false);
-        pnlDatosReserva.setVisible(false);
+      //  btnVer.setVisible(false);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -27,16 +31,9 @@ public class RastrearVuelo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtClavePasajero = new javax.swing.JTextField();
         btnRastrear = new javax.swing.JButton();
+        pnlContenido = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
         lbVueloEncontrado = new javax.swing.JLabel();
-        btnVer = new javax.swing.JButton();
-        pnlDatosReserva = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        btnModificarDatosPasajeros = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -141,99 +138,52 @@ public class RastrearVuelo extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 90));
 
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(13, 150, 206));
         jLabel1.setText("RASTREA TU VUELO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 170, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 300, 50));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("INTRODUCE LA CLAVE DEL VUELO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
-        jPanel1.add(txtClavePasajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 160, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
 
-        btnRastrear.setText("RASTREAR");
+        txtClavePasajero.setBackground(new java.awt.Color(255, 255, 255));
+        txtClavePasajero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtClavePasajeroKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txtClavePasajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 190, 30));
+
+        btnRastrear.setBackground(new java.awt.Color(14, 150, 206));
+        btnRastrear.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnRastrear.setForeground(new java.awt.Color(255, 255, 255));
+        btnRastrear.setText("BUSCAR VUELO");
         btnRastrear.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), null));
         btnRastrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRastrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRastrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 130, 30));
+        jPanel1.add(btnRastrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 130, 30));
 
-        lbVueloEncontrado.setText("jLabel3");
-        jPanel1.add(lbVueloEncontrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 160, 160, 50));
+        pnlContenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnVer.setText("VER");
-        btnVer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, -1, -1));
-
-        jLabel3.setText("Origen");
-
-        jLabel6.setText("Destino");
-
-        jLabel7.setText("Fecha");
-
-        jLabel8.setText("Nombre");
-
-        jLabel9.setText("Apellido ");
-
-        jLabel11.setText("Telefono");
-
-        btnModificarDatosPasajeros.setText("MODIFICAR");
-
-        javax.swing.GroupLayout pnlDatosReservaLayout = new javax.swing.GroupLayout(pnlDatosReserva);
-        pnlDatosReserva.setLayout(pnlDatosReservaLayout);
-        pnlDatosReservaLayout.setHorizontalGroup(
-            pnlDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosReservaLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(pnlDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDatosReservaLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlDatosReservaLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
-                        .addGap(252, 252, 252))
-                    .addGroup(pnlDatosReservaLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 377, Short.MAX_VALUE)
-                        .addGroup(pnlDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel9))
-                        .addGap(249, 249, 249))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosReservaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnModificarDatosPasajeros)
-                .addGap(212, 212, 212))
+        javax.swing.GroupLayout pnlContenidoLayout = new javax.swing.GroupLayout(pnlContenido);
+        pnlContenido.setLayout(pnlContenidoLayout);
+        pnlContenidoLayout.setHorizontalGroup(
+            pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 890, Short.MAX_VALUE)
         );
-        pnlDatosReservaLayout.setVerticalGroup(
-            pnlDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDatosReservaLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(pnlDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel8))
-                .addGroup(pnlDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlDatosReservaLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel6))
-                    .addGroup(pnlDatosReservaLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel9)))
-                .addGap(17, 17, 17)
-                .addComponent(jLabel7)
-                .addGap(15, 15, 15)
-                .addComponent(jLabel11)
-                .addGap(37, 37, 37)
-                .addComponent(btnModificarDatosPasajeros)
-                .addContainerGap(90, Short.MAX_VALUE))
+        pnlContenidoLayout.setVerticalGroup(
+            pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 410, Short.MAX_VALUE)
         );
 
-        jPanel1.add(pnlDatosReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 760, 330));
+        jPanel1.add(pnlContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 890, 410));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 910, 10));
+        jPanel1.add(lbVueloEncontrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 160, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -243,7 +193,7 @@ public class RastrearVuelo extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -277,46 +227,99 @@ public class RastrearVuelo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnRastrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRastrearActionPerformed
-RastreoVuelo obj= new RastreoVuelo();
-        String clavePasajero= txtClavePasajero.getText().trim();
 
-        obj.rastrearVuelo(clavePasajero,btnVer,lbVueloEncontrado);
-        
+        RastreoVuelo objectRastroVuelo= new RastreoVuelo();
+        String inputclaveReserva= txtClavePasajero.getText().trim();
+/*
+    boolean found= objectRastroVuelo.rastrearVuelo(inputclaveReserva,lbVueloEncontrado,pnlContenido);
+      PnlDatosReserva o= new PnlDatosReserva();
+      
+      if(found){
+          
+          showPanel(o);
+
+         objectRastroVuelo.showDatos();
+          
+         //o.showDatosPasajeros();
+          
+          
+      }else
+      {
+          System.out.println("Vuevlo no encontrado");
+          JOptionPane.showMessageDialog(null, "Vuelo no encontrado");
+      }
+ */PnlDatosReserva panelDatos= new PnlDatosReserva();
+ 
+    boolean encontrado= panelDatos.rastrearVueloPnlDatosReserva(inputclaveReserva, lbVueloEncontrado, pnlContenido);
+    
+    if(encontrado){
+       showPanel(panelDatos);
+        String datosPasajero=panelDatos.getDatosPasajero();
+        panelDatos.showDatosPasajero(datosPasajero);
+        String datosAvion=panelDatos.getDatosAvion();
+        panelDatos.showDatosVuelo(datosAvion);
+    }
+
+
+
+
+
+
     }//GEN-LAST:event_btnRastrearActionPerformed
 
-    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-pnlDatosReserva.setVisible(true);
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_btnVerActionPerformed
+    private void txtClavePasajeroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClavePasajeroKeyPressed
 
+        
+         RastreoVuelo objectRastroVuelo= new RastreoVuelo();
+        String inputclaveReserva= txtClavePasajero.getText().trim();
+        
+        PnlDatosReserva panelDatos= new PnlDatosReserva();
+ 
+    boolean encontrado= panelDatos.rastrearVueloPnlDatosReserva(inputclaveReserva, lbVueloEncontrado, pnlContenido);
+    
+    if(encontrado){
+        showPanel(panelDatos);
+        String datosPasajero=panelDatos.getDatosPasajero();
+        panelDatos.showDatosPasajero(datosPasajero);
+        String datosAvion=panelDatos.getDatosAvion();
+        panelDatos.showDatosVuelo(datosAvion);
+    }
+        
+        
+        
+    }//GEN-LAST:event_txtClavePasajeroKeyPressed
+
+    
+    public void showPanel(JPanel panel)
+    {
+       panel.setSize(890, 410);
+       panel.setLocation(0,0);
+       
+       
+        pnlContenido.removeAll();
+        pnlContenido.add(panel,BorderLayout.CENTER);
+        pnlContenido.revalidate();
+        pnlContenido.repaint();
+         
+         
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAboutUs;
     private javax.swing.JButton btnMiVuelo;
-    private javax.swing.JButton btnModificarDatosPasajeros;
     private javax.swing.JButton btnRastrear;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnVer;
     private javax.swing.JButton btnVuelo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lbVueloEncontrado;
-    private javax.swing.JPanel pnlDatosReserva;
+    private javax.swing.JPanel pnlContenido;
     private javax.swing.JTextField txtClavePasajero;
     // End of variables declaration//GEN-END:variables
 }

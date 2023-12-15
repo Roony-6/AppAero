@@ -9,6 +9,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     
     public InterfazPrincipal() {
         initComponents();
+        btnReservar.setVisible(false);
+        lbCosto.setVisible(false);
+    cmboxFechas.setVisible(false);
+    lbFechas.setVisible(false);
+    lbNumPas.setVisible(false);
+    btnIncrementar.setVisible(false);
+    btndecrementar.setVisible(false);
+    lbContador.setVisible(false);
+       
   
     }
     
@@ -55,7 +64,7 @@ public void llenarArrayResumen0(){
         cmboxOrigenes = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         cmboxDestinos = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        lbFechas = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         cmboxFechas = new javax.swing.JComboBox<>();
         btnBuscarFechas = new javax.swing.JButton();
@@ -77,8 +86,8 @@ public void llenarArrayResumen0(){
         lbContador = new javax.swing.JLabel();
         btndecrementar = new javax.swing.JButton();
         btnIncrementar = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lbNumPas = new javax.swing.JLabel();
+        lbCosto = new javax.swing.JLabel();
         lbShowCosto = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -100,24 +109,24 @@ public void llenarArrayResumen0(){
         cmboxOrigenes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cmboxOrigenes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 255, 255)));
         cmboxOrigenes.setPreferredSize(new java.awt.Dimension(69, 16));
-        jPanel1.add(cmboxOrigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 170, 40));
+        jPanel1.add(cmboxOrigenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 170, 40));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("ORIGEN");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
         cmboxDestinos.setBackground(new java.awt.Color(241, 255, 255));
         cmboxDestinos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cmboxDestinos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 255, 255)));
-        jPanel1.add(cmboxDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 278, 170, 40));
+        jPanel1.add(cmboxDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 170, 40));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel2.setText("FECHAS DISPONIBLES");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, -1, -1));
+        lbFechas.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        lbFechas.setText("FECHAS DISPONIBLES");
+        jPanel1.add(lbFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setText("DESTINO");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
 
         cmboxFechas.setBackground(new java.awt.Color(241, 255, 255));
         cmboxFechas.setToolTipText("bzfdbdfdn");
@@ -150,7 +159,7 @@ public void llenarArrayResumen0(){
                 btnBuscarFechasKeyPressed(evt);
             }
         });
-        jPanel1.add(btnBuscarFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 170, 30));
+        jPanel1.add(btnBuscarFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, 170, 30));
 
         lbmostrarDisponible.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
         lbmostrarDisponible.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/reserva (1).png"))); // NOI18N
@@ -317,15 +326,15 @@ public void llenarArrayResumen0(){
         });
         jPanel1.add(btnIncrementar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 440, 30, -1));
 
-        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel10.setText("NUMERO DE PASAJEROS");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, -1, -1));
+        lbNumPas.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        lbNumPas.setText("NUMERO DE PASAJEROS");
+        jPanel1.add(lbNumPas, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, -1, -1));
 
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(14, 248, 87));
-        jLabel11.setText("COSTO");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 420, 60, -1));
+        lbCosto.setBackground(new java.awt.Color(255, 255, 255));
+        lbCosto.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        lbCosto.setForeground(new java.awt.Color(14, 248, 87));
+        lbCosto.setText("COSTO");
+        jPanel1.add(lbCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 420, 60, -1));
 
         lbShowCosto.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jPanel1.add(lbShowCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 440, 70, 30));
@@ -373,7 +382,7 @@ public void llenarArrayResumen0(){
     private void btnBuscarFechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFechasActionPerformed
         // TODO add your handling code here:
         System.out.println("Encontré el vuelo");
-        archVuelos.buscarFecha(btnReservar,cmboxDestinos, cmboxOrigenes, cmboxFechas,lbEncontrado,lbShowCosto);
+        archVuelos.buscarFecha(btnReservar, cmboxDestinos, cmboxOrigenes, cmboxFechas, lbEncontrado, lbShowCosto, lbCosto, lbFechas, lbNumPas, btnIncrementar, btndecrementar, lbContador);
         lbContador.setText("1");
         costo=lbShowCosto.getText();
         System.out.println("prueba metodo get costo:"+ costo);
@@ -402,6 +411,7 @@ public void llenarArrayResumen0(){
         System.out.println("obtenida correctamente....");
         // Actualizar los campos de texto en la interfaz FormDatosPasajero
         formDatosP.actualizarResumen(origen, destino, fecha,numPasajeros,costoTotal);
+        this.setVisible(false);
         
      
 
@@ -497,12 +507,9 @@ abtUs.setLocationRelativeTo(null);
     private javax.swing.JComboBox<String> cmboxFechas;
     private javax.swing.JComboBox<String> cmboxOrigenes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -516,7 +523,10 @@ abtUs.setLocationRelativeTo(null);
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lbContador;
+    private javax.swing.JLabel lbCosto;
     private javax.swing.JLabel lbEncontrado;
+    private javax.swing.JLabel lbFechas;
+    private javax.swing.JLabel lbNumPas;
     private javax.swing.JLabel lbShowCosto;
     private javax.swing.JLabel lbmostrarDisponible;
     // End of variables declaration//GEN-END:variables

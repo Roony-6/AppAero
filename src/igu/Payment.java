@@ -1,5 +1,6 @@
 package igu;
 
+import javax.swing.JOptionPane;
 import logic.*;
 import persistence.ControladoraReservas;
 
@@ -14,6 +15,7 @@ public class Payment extends javax.swing.JFrame {
     
     public Payment() {
         initComponents();
+        btnHome.setVisible(false);
         
     }
        
@@ -45,6 +47,7 @@ public class Payment extends javax.swing.JFrame {
         txtNombreTitular = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        btnHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -150,9 +153,13 @@ public class Payment extends javax.swing.JFrame {
                 btnPagoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, 120, 30));
+        jPanel1.add(btnPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 510, 120, 30));
 
-        txtNumTarjeta.setBackground(new java.awt.Color(255, 255, 255));
+        txtNumTarjeta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNumTarjetaKeyPressed(evt);
+            }
+        });
         jPanel1.add(txtNumTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 190, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -162,20 +169,26 @@ public class Payment extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel4.setText("VIGENCIA");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
-
-        txtVigencia.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtVigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 190, 30));
-
-        txtClave.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 190, 30));
-
-        txtNombreTitular.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtNombreTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 190, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(16, 160, 206));
         jLabel7.setText("PAGO");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 910, 10));
+
+        btnHome.setBackground(new java.awt.Color(16, 150, 206));
+        btnHome.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnHome.setText("VOLVER AL INICIO ");
+        btnHome.setBorder(null);
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 590, 450, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,7 +198,7 @@ public class Payment extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
         );
 
         pack();
@@ -216,17 +229,16 @@ public class Payment extends javax.swing.JFrame {
 
         //datosReserva();
 
+        
  
         System.out.println("Lo obtube correctamente ...."+claveAvionn);
         System.out.println("Lo ontuve correctamente... "+clavePas);
 
-        Reserva objectReserva= new Reserva();
-        claveReserva= objectReserva.generarClaveReserva(clavePas, claveAvionn);
-        System.out.println("generada correctamente..... "+claveReserva);
-        Reserva objetoResv= new Reserva(claveReserva, clavePas, claveAvionn);
-        System.out.println(objetoResv.toString());
-        ControladoraReservas obj= new ControladoraReservas();
-        obj.guardarReserva(objetoResv);
+        
+        
+        
+        comprobarCamposLlenos();
+        
         
         
         
@@ -236,14 +248,55 @@ public class Payment extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnPagoActionPerformed
 
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+    this.setVisible(false);
+        InterfazPrincipal objectInterfazPrincipal= new InterfazPrincipal();
+        objectInterfazPrincipal.setVisible(true);
+        objectInterfazPrincipal.setLocationRelativeTo(null);
+         objectInterfazPrincipal.agregarItems();//con metodo de la interfaz principal agregamos informacion obtenida de los archivos leidos 
+    }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void txtNumTarjetaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumTarjetaKeyPressed
+
+
+             char c = evt.getKeyChar();
+                if (!Character.isDigit(c) || txtNumTarjeta.getText().length() >= 16) {
+                    evt.consume(); // Consume el evento si no es un dígito o se excede la longitud
+                }
+
+    }//GEN-LAST:event_txtNumTarjetaKeyPressed
+ boolean camposLlenos=false;
+ Reserva objectReserva= new Reserva();
     public void comprobarCamposLlenos(){
         
-        boolean camposLlenos=false;
+       
         
         String numtarjeta=txtNumTarjeta.getText();
         String nombreTitu= txtNombreTitular.getText();
         String vigencia= txtVigencia.getText();
         String claveTarjeta= txtClave.getText();
+        if(numtarjeta.isEmpty()||nombreTitu.isEmpty()||vigencia.isEmpty()||claveTarjeta.isEmpty()){
+          
+        
+        
+            JOptionPane.showMessageDialog(null,"Campos incompletos");
+           
+            
+        }else{
+             
+            claveReserva= objectReserva.generarClaveReserva(clavePas, claveAvionn);
+        System.out.println("generada correctamente..... "+claveReserva);
+        Reserva objetoResv= new Reserva(claveReserva, clavePas, claveAvionn);
+        System.out.println(objetoResv.toString());
+        ControladoraReservas obj= new ControladoraReservas();
+        obj.guardarReserva(objetoResv);
+        
+            camposLlenos=true;
+            JOptionPane.showMessageDialog(null,"Reservacion realizada correctamente");
+            
+            btnHome.setVisible(true);
+        }
+        
         
         
     }
@@ -264,6 +317,7 @@ public class Payment extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHome;
     private javax.swing.JButton btnPago;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;

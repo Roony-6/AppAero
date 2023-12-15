@@ -12,8 +12,8 @@ public class DatosPasajero {
     private String telefono;
     private String numeroPasajeros;
     private String costoVuelo;
-    public String clavePasajero;
-    private String claveAvion;
+    protected String clavePasajero;
+    protected String claveAvion;
     public DatosPasajero(){        
     }
     /////////////////////////////////////////////NOTA MUY IMPORTANTE//////////////////////////////////////////////////////
@@ -108,6 +108,10 @@ public class DatosPasajero {
 
     public String getCostoVuelo() {
         return costoVuelo;
+    }
+
+    public String getClaveAvion() {
+        return claveAvion;
     }
  
 

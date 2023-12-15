@@ -84,7 +84,9 @@ public class ArchVuelos {
   // metodo que busca y muestra los vuelos disponibles de acuerdo al Origen y Destino seleccionado
     //////
     Payment o = new Payment();
-    public void buscarFecha(javax.swing.JButton btnReservar,javax.swing.JComboBox<String> cmboxDestinos,javax.swing.JComboBox<String> cmboxOrigenes,javax.swing.JComboBox<String> cmboxFechas, javax.swing.JLabel lbEncontrado,javax.swing.JLabel lbShowCosto){
+    public void buscarFecha(javax.swing.JButton btnReservar,javax.swing.JComboBox<String> cmboxDestinos,javax.swing.JComboBox<String> cmboxOrigenes,javax.swing.JComboBox<String> cmboxFechas, javax.swing.JLabel lbEncontrado,javax.swing.JLabel lbShowCosto
+   ,javax.swing.JLabel lbCosto, javax.swing.JLabel lbFechas, javax.swing.JLabel lbNumPas, javax.swing.JButton btnIncrementar,javax.swing.JButton btndecrementar
+    ,javax.swing.JLabel lbContador){
         control.leerArchivoAviones();
         int selectedOrigenIndex= cmboxOrigenes.getSelectedIndex();
         System.out.println("indice origen selecconado: "+selectedOrigenIndex);
@@ -96,7 +98,7 @@ public class ArchVuelos {
         System.out.println("dest selec clve:"+destinoSelectedClave);
         String costoVuelo;
       String claveAvion;
-      btnReservar.setEnabled(false);
+      //btnReservar.setEnabled(false);
       
 
        
@@ -120,7 +122,36 @@ public class ArchVuelos {
        
        lbEncontrado.setText("Vuelo encontrado...");
        lbShowCosto.setText(costoVuelo);
-      btnReservar.setEnabled(true);
+       btnReservar.setVisible(true);
+     btnReservar.setEnabled(true);
+     
+     lbCosto.setVisible(true);
+    cmboxFechas.setVisible(true);
+    lbFechas.setVisible(true);
+    lbNumPas.setVisible(true);
+    btnIncrementar.setVisible(true);
+    btndecrementar.setVisible(true);
+    lbContador.setVisible(true);
+     
+     /*
+     
+      javax.swing.JLabel lbCosto
+   javax.swing.JComboBox<String> cmboxFechas
+    javax.swing.JLabel lbFechas
+     javax.swing.JLabel lbNumPas
+             javax.swing.JButton btnIncrementar
+                     javax.swing.JButton btndecrementar
+                             javax.swing.JLabel lbContador
+     
+     
+     
+     
+     
+     */
+     
+     
+     
+     
         }
         }
     }

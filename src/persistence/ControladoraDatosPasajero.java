@@ -24,7 +24,7 @@ public class ControladoraDatosPasajero {
         BufferedWriter bw= new BufferedWriter(fw);
         
         bw.write(objDatosPas.toString());
-        bw.newLine();
+         bw.newLine();
         
         bw.close();
        
