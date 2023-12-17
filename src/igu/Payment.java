@@ -1,8 +1,23 @@
 package igu;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import javax.swing.JOptionPane;
+
+
 import logic.*;
 import persistence.ControladoraReservas;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.PdfPTable;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.imageio.ImageIO;
 
 public class Payment extends javax.swing.JFrame {
 
@@ -159,6 +174,9 @@ public class Payment extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtNumTarjetaKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumTarjetaKeyTyped(evt);
+            }
         });
         jPanel1.add(txtNumTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 190, 30));
 
@@ -169,8 +187,31 @@ public class Payment extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel4.setText("VIGENCIA");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
+
+        txtVigencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtVigenciaKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtVigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 190, 30));
+
+        txtClave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtClaveKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 190, 30));
+
+        txtNombreTitular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreTitularActionPerformed(evt);
+            }
+        });
+        txtNombreTitular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreTitularKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNombreTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 190, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
@@ -259,12 +300,44 @@ public class Payment extends javax.swing.JFrame {
     private void txtNumTarjetaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumTarjetaKeyPressed
 
 
-             char c = evt.getKeyChar();
+            
+    }//GEN-LAST:event_txtNumTarjetaKeyPressed
+
+    private void txtNumTarjetaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumTarjetaKeyTyped
+ char c = evt.getKeyChar();
                 if (!Character.isDigit(c) || txtNumTarjeta.getText().length() >= 16) {
+                   getToolkit().beep();
                     evt.consume(); // Consume el evento si no es un dígito o se excede la longitud
                 }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumTarjetaKeyTyped
 
-    }//GEN-LAST:event_txtNumTarjetaKeyPressed
+    private void txtNombreTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreTitularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreTitularActionPerformed
+
+    private void txtNombreTitularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreTitularKeyTyped
+ char c = evt.getKeyChar();
+                if (Character.isDigit(c)) {
+                   getToolkit().beep();
+                    evt.consume(); // Consume el evento si no es un dígito o se excede la longitud
+                }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreTitularKeyTyped
+
+    private void txtVigenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVigenciaKeyTyped
+
+        char c = evt.getKeyChar();
+                if (Character.isLetter(c)) {
+                   getToolkit().beep();
+                    evt.consume(); // Consume el evento si no es un dígito o se excede la longitud
+                } 
+
+
+    }//GEN-LAST:event_txtVigenciaKeyTyped
+
+    private void txtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClaveKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClaveKeyTyped
  boolean camposLlenos=false;
  Reserva objectReserva= new Reserva();
     public void comprobarCamposLlenos(){
@@ -295,6 +368,7 @@ public class Payment extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Reservacion realizada correctamente");
             
             btnHome.setVisible(true);
+            pdf();
         }
         
         
@@ -307,6 +381,87 @@ public class Payment extends javax.swing.JFrame {
 
     public void setClaveAvionn(String claveAvionn) {
         this.claveAvionn = claveAvionn;
+    }
+    ///////////////////////////////////
+   
+      private static byte[] convertirImagenABytes(BufferedImage bufferedImage) throws IOException {
+        // Convertir BufferedImage a bytes
+          ByteArrayOutputStream baos = new ByteArrayOutputStream();
+          ImageIO.write(bufferedImage, "png", baos);
+        return baos.toByteArray();
+    }
+
+    
+  
+    
+    public void pdf(){
+        try{
+            FileOutputStream archivo;
+   
+            File file = new File("E:\\Avance\\pdf\\Ticket_Reserva_"+claveReserva+".pdf");
+            archivo= new FileOutputStream(file);
+         
+                // Ruta de la imagen
+            String rutaImagen = "ruta/a/tu/imagen.png";
+
+            // Crear un objeto Image
+            
+            Document documento = new Document();
+            PdfWriter.getInstance(documento, archivo);
+            documento.open();
+           // Image logo= new Image.getInstance("E:\\Avance\\AppAerolinea\\src\\Images\\burrologo.png") 
+            //;
+             File fileImagen=new File("E:\\Avance\\AppAerolinea\\src\\Images\\burrologo.png");
+    BufferedImage bufferedImage = ImageIO.read(fileImagen);
+    
+       byte[] imageBytes = convertirImagenABytes(bufferedImage);
+            
+    
+    
+    
+            Paragraph fecha= new Paragraph();
+            Font negrita= new Font(Font.FontFamily.TIMES_ROMAN,12,Font.BOLD,BaseColor.BLACK);
+            
+            fecha.add(Chunk.NEWLINE);
+            Date date = new Date();
+            
+                    
+            fecha.add("Fecha: "+ new SimpleDateFormat("dd-mm-yyyy").format(date)+"\n");
+            
+            PdfPTable header= new PdfPTable(4);
+            header.setWidthPercentage(100);
+            header.getDefaultCell().setBorder(0);
+            float[] columnsHeader = new float[]{30f,40f, 46f, 36f};
+            header.setWidths(columnsHeader);
+            header.setHorizontalAlignment(Element.ALIGN_LEFT);
+           header.addCell(Image.getInstance(imageBytes));
+            header.addCell("");
+            String nombre= "BURROSWINGS";
+            String tel= "5526916007";
+            String direccion= "Cecyt 3";
+            String razon= "Reservas";
+            
+            header.addCell(nombre+"\nTelefono: "+tel+"\nDireccion: "+direccion+"\nRazon: "+razon);
+            header.addCell(fecha);
+            documento.add(header);
+            
+            
+            
+            
+            
+            documento.close();
+            archivo.close();
+            System.out.println("Pdf creado exitosamente");
+                    
+         
+            
+            
+            
+            
+            
+        }catch(Throwable e){
+            System.out.println(e);
+        }
     }
 
    

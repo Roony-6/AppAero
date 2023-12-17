@@ -172,8 +172,25 @@ public class FormDatosPasajero extends javax.swing.JFrame {
                 txtApellidosActionPerformed(evt);
             }
         });
+        txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidosKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 410, -1));
+
+        txtEdad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEdadKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 407, -1));
+
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, 407, -1));
 
         btnLImpiar.setBackground(new java.awt.Color(13, 176, 200));
@@ -399,8 +416,55 @@ this.setVisible(false);
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        // TODO add your handling code here:
+
+
+        char c= evt.getKeyChar();
+        if(Character.isDigit(c)){
+             getToolkit().beep();
+                    evt.consume(); // Consume el evento si no es un dígito o se excede la longitud
+            
+        }
     }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtEdadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadKeyTyped
+
+        char c = evt.getKeyChar();
+                if (!Character.isDigit(c)|| txtEdad.getText().length() >1  ) {
+                   getToolkit().beep();
+                    evt.consume(); // Consume el evento si no es un dígito o se excede la longitud
+                }
+
+
+
+    }//GEN-LAST:event_txtEdadKeyTyped
+
+    private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
+
+
+         char c= evt.getKeyChar();
+        if(Character.isDigit(c)){
+             getToolkit().beep();
+                    evt.consume(); // Consume el evento si no es un dígito o se excede la longitud
+            
+        }
+        
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidosKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+
+         char c = evt.getKeyChar();
+                if (!Character.isDigit(c)|| txtTelefono.getText().length() >9  ) {
+                   getToolkit().beep();
+                    evt.consume(); // Consume el evento si no es un dígito o se excede la longitud
+                }
+
+
+        
+
+
+    }//GEN-LAST:event_txtTelefonoKeyTyped
 
     ////preuba para obtener calve del avion
    // public String getClaveAvion(){

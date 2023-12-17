@@ -87,6 +87,11 @@ public String strHtml(String texto) {
         btnVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/avionIcon.png"))); // NOI18N
         btnVuelo.setText("     VUELO");
         btnVuelo.setBorder(null);
+        btnVuelo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVueloMouseEntered(evt);
+            }
+        });
         btnVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVueloActionPerformed(evt);
@@ -344,6 +349,13 @@ PanelComoReservar panelComoreservar= new PanelComoReservar();
     private void btnPrivacidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrivacidad1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPrivacidad1ActionPerformed
+
+    private void btnVueloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVueloMouseEntered
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVueloMouseEntered
 
     
 

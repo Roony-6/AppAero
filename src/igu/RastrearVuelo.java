@@ -153,6 +153,9 @@ public class RastrearVuelo extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtClavePasajeroKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtClavePasajeroKeyTyped(evt);
+            }
         });
         jPanel1.add(txtClavePasajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 190, 30));
 
@@ -164,6 +167,11 @@ public class RastrearVuelo extends javax.swing.JFrame {
         btnRastrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRastrearActionPerformed(evt);
+            }
+        });
+        btnRastrear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnRastrearKeyPressed(evt);
             }
         });
         jPanel1.add(btnRastrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 130, 30));
@@ -269,25 +277,24 @@ public class RastrearVuelo extends javax.swing.JFrame {
 
     private void txtClavePasajeroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClavePasajeroKeyPressed
 
-        
-         RastreoVuelo objectRastroVuelo= new RastreoVuelo();
-        String inputclaveReserva= txtClavePasajero.getText().trim();
-        
-        PnlDatosReserva panelDatos= new PnlDatosReserva();
- 
-    boolean encontrado= panelDatos.rastrearVueloPnlDatosReserva(inputclaveReserva, lbVueloEncontrado, pnlContenido);
-    
-    if(encontrado){
-        showPanel(panelDatos);
-        String datosPasajero=panelDatos.getDatosPasajero();
-        panelDatos.showDatosPasajero(datosPasajero);
-        String datosAvion=panelDatos.getDatosAvion();
-        panelDatos.showDatosVuelo(datosAvion);
+    if(evt.getExtendedKeyCode()== evt.VK_ENTER){
+           btnRastrear.requestFocus();
+           btnRastrear.doClick();
+   
     }
         
-        
-        
     }//GEN-LAST:event_txtClavePasajeroKeyPressed
+
+
+    private void txtClavePasajeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClavePasajeroKeyTyped
+
+        
+       
+    }//GEN-LAST:event_txtClavePasajeroKeyTyped
+
+    private void btnRastrearKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnRastrearKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRastrearKeyPressed
 
     
     public void showPanel(JPanel panel)

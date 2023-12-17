@@ -180,7 +180,7 @@ public void llenarArrayResumen0(){
                 btnReservarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 580, 190, 30));
+        jPanel1.add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 570, 370, 30));
 
         jPanel2.setBackground(new java.awt.Color(14, 150, 203));
         jPanel2.setForeground(new java.awt.Color(0, 0, 204));
