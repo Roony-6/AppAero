@@ -1,11 +1,27 @@
 
 package igu;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.StringTokenizer;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import logic.DatosPasajero;
 import logic.RastreoVuelo;
@@ -14,6 +30,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
     public PnlDatosReserva() {
         initComponents();
     }
+   public String claveReserva="";
    public String clave;
    public String nombre;
    public String apellido;
@@ -45,6 +62,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
         txtEdad = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        btnTicket = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         pnlDatos.setBackground(new java.awt.Color(255, 255, 255));
@@ -167,6 +185,16 @@ public class PnlDatosReserva extends javax.swing.JPanel {
             }
         });
 
+        btnTicket.setBackground(new java.awt.Color(16, 150, 206));
+        btnTicket.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnTicket.setForeground(new java.awt.Color(255, 255, 255));
+        btnTicket.setText("GENERAR TICKET");
+        btnTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTicketActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -183,19 +211,18 @@ public class PnlDatosReserva extends javax.swing.JPanel {
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(108, 108, 108)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                            .addComponent(txtClave)
-                            .addComponent(txtApellido)
-                            .addComponent(txtEdad)
-                            .addComponent(txtTelefono))))
-                .addContainerGap(109, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(82, 82, 82))
+                            .addComponent(jLabel10)
+                            .addComponent(btnTicket))
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                .addComponent(txtClave)
+                                .addComponent(txtApellido)
+                                .addComponent(txtEdad)
+                                .addComponent(txtTelefono)))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +250,9 @@ public class PnlDatosReserva extends javax.swing.JPanel {
                     .addComponent(jLabel10)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btnTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
 
@@ -250,7 +279,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(118, 118, 118))
+                .addGap(50, 50, 50))
         );
         pnlDatosLayout.setVerticalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,9 +288,9 @@ public class PnlDatosReserva extends javax.swing.JPanel {
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -297,7 +326,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
 
         
         String claveReserva= JOptionPane.showInputDialog("Para proceder con la cancelacion del vuelo necesitamos que me proporciones"
-                + "\n nuevamente tu CALVE DE RESERVA");
+                + " nuevamente tu CALVE DE RESERVA");
         
      //   String clavePasajero= JOptionPane.showInputDialog("Para proceder con la cancelacion del vuelo necesitamos que me proporciones"
        //         + "\n nuevamente tu CLAVE DE PASAJERO");
@@ -306,6 +335,126 @@ public class PnlDatosReserva extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    
+          private static byte[] convertirImagenABytes(BufferedImage bufferedImage) throws IOException {
+        // Convertir BufferedImage a bytes
+          ByteArrayOutputStream baos = new ByteArrayOutputStream();
+          ImageIO.write(bufferedImage, "png", baos);
+        return baos.toByteArray();
+    }
+
+    
+  
+    
+    public void pdf(String destino,String fech,String avion,String clave ,String nombr,String apellido,String edad,String telefono){
+        try{
+            FileOutputStream archivo;
+   
+            File file = new File("E:\\Avance\\pdf\\Reporte_Reserva_"+claveReserva+".pdf");
+            archivo= new FileOutputStream(file);
+         
+                // Ruta de la imagen
+            String rutaImagen = "ruta/a/tu/imagen.png";
+
+            // Crear un objeto Image
+            
+            Document documento = new Document();
+            PdfWriter.getInstance(documento, archivo);
+            documento.open();
+           // Image logo= new Image.getInstance("E:\\Avance\\AppAerolinea\\src\\Images\\burrologo.png") 
+            //;
+             File fileImagen=new File("E:\\Avance\\AppAerolinea\\src\\Images\\burrologo.png");
+    BufferedImage bufferedImage = ImageIO.read(fileImagen);
+    
+       byte[] imageBytes = convertirImagenABytes(bufferedImage);
+            
+    
+    
+    
+            Paragraph fecha= new Paragraph();
+            Font negrita= new Font(Font.FontFamily.TIMES_ROMAN,12,Font.BOLD,BaseColor.BLACK);
+            
+            fecha.add(Chunk.NEWLINE);
+            Date date = new Date();
+            
+                    
+            fecha.add("Fecha: "+ new SimpleDateFormat("dd-mm-yyyy").format(date)+"\n");
+            
+            PdfPTable header= new PdfPTable(4);
+            header.setWidthPercentage(100);
+            header.getDefaultCell().setBorder(0);
+            float[] columnsHeader = new float[]{30f,40f, 46f, 36f};
+            header.setWidths(columnsHeader);
+            header.setHorizontalAlignment(Element.ALIGN_LEFT);
+           header.addCell(Image.getInstance(imageBytes));
+            header.addCell("");
+            String nombre= "BURROSWINGS";
+            String tel= "5526916007";
+            String direccion= "Cecyt 3";
+            String razon= "Reservas";
+            
+            header.addCell(nombre+"\nTelefono: "+tel+"\nDireccion: "+direccion+"\nRazon: "+razon);
+            header.addCell(fecha);
+            documento.add(header);
+            
+             PdfPTable body= new PdfPTable(1);
+            body.getDefaultCell().setBorder(0);
+            float[] columnsBody = new float[]{50f,50f};
+            body.setWidthPercentage(100);
+            body.setHorizontalAlignment(Element.ALIGN_LEFT);
+            body.addCell("Clave de Reserva: "+claveReserva+"\nDestino: "+destino+"\nFecha del vuelo: "
+            +fech+"\nModelo de Avion: "+avion+""
+                    + "\n\n\nClave Pasajero: "+clave+"\nNombre: "+nombr+"\nApellido: "+apellido+"\nEdad: "+edad+"\nContacto: "+telefono);
+            
+           // body.addCell("Clave Pasajero: "+""+"\nNombre: "+""+"\nApellido: "+""+"\nEdad: "+""+"\nContacto: ");
+            documento.add(body);
+            
+            
+            
+            
+            
+            documento.close();
+            archivo.close();
+            System.out.println("Pdf creado exitosamente");
+                    
+         
+            
+            
+            
+            
+            
+        }catch(Throwable e){
+            System.out.println(e);
+        }
+    }
+    
+    private void btnTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTicketActionPerformed
+
+        String destino= txtDestino.getText();
+        String fecha= txtFecha.getText();
+        String Avion= txtAvion.getText();
+        
+        String Clave= txtClave.getText();
+        String nombre= txtNombre.getText();
+        String apellido= txtApellido.getText();
+        String edad= txtEdad.getText();
+        String telefono= txtTelefono.getText();
+                
+        
+        
+        pdf(destino, fecha, Avion, Clave, nombre, apellido, edad, telefono);
+
+        JOptionPane.showMessageDialog(null, "El ticket se ha generado exitosamente");
+
+
+
+
+
+
+
+       
+    }//GEN-LAST:event_btnTicketActionPerformed
     public void setDatos(){
         System.out.println("metodo setDatos, prueba0");
         System.out.println("clave "+clave);
@@ -330,6 +479,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
     
       public boolean rastrearVueloPnlDatosReserva(String inputclaveReserva,javax.swing.JLabel lbVueloEncontrado,javax.swing.JPanel pnlContenido){
      boolean encontrado=false;
+          setClaveReserva(inputclaveReserva);
         try{
          FileReader frReservas= new FileReader("E:\\ARCHIVO_DESARROLLO\\RESERVAS.txt");
          BufferedReader br= new BufferedReader(frReservas);
@@ -712,6 +862,11 @@ public class PnlDatosReserva extends javax.swing.JPanel {
     
     
     /////////////////////////////////GETTERS AND SETTERS/////////////////////////////////////
+     
+    public void setClaveReserva(String claveReserva) {
+        this.claveReserva = claveReserva;
+    }
+
     public String getClave() {
         return clave;
     }
@@ -755,6 +910,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnTicket;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

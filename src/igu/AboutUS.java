@@ -2,6 +2,7 @@
 package igu;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 public class AboutUS extends javax.swing.JFrame {
@@ -62,9 +63,9 @@ public String strHtml(String texto) {
         jPanel4 = new javax.swing.JPanel();
         btnAboutUs = new javax.swing.JButton();
         btnComoReservar = new javax.swing.JButton();
-        btnMetodosDPago = new javax.swing.JButton();
         btnCancelarVuelo = new javax.swing.JButton();
         btnPrivacidad1 = new javax.swing.JButton();
+        btnCondiciones = new javax.swing.JButton();
         pnlContenido = new javax.swing.JPanel();
         lbAboutUs = new javax.swing.JLabel();
 
@@ -91,6 +92,9 @@ public String strHtml(String texto) {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnVueloMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVueloMouseExited(evt);
+            }
         });
         btnVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +107,14 @@ public String strHtml(String texto) {
         btnMiVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/suitcase (1).png"))); // NOI18N
         btnMiVuelo.setText(" MI VUELO");
         btnMiVuelo.setBorder(null);
+        btnMiVuelo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMiVueloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMiVueloMouseExited(evt);
+            }
+        });
         btnMiVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMiVueloActionPerformed(evt);
@@ -114,6 +126,14 @@ public String strHtml(String texto) {
         btAboutUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/info (1).png"))); // NOI18N
         btAboutUs.setText("INFO");
         btAboutUs.setBorder(null);
+        btAboutUs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btAboutUsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btAboutUsMouseExited(evt);
+            }
+        });
         btAboutUs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAboutUsActionPerformed(evt);
@@ -138,18 +158,16 @@ public String strHtml(String texto) {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(btnVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnMiVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(btAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(87, 87, 87))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,17 +217,6 @@ public String strHtml(String texto) {
             }
         });
 
-        btnMetodosDPago.setBackground(new java.awt.Color(14, 150, 203));
-        btnMetodosDPago.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnMetodosDPago.setForeground(new java.awt.Color(255, 255, 255));
-        btnMetodosDPago.setText("METODOS DE PAGO");
-        btnMetodosDPago.setBorder(null);
-        btnMetodosDPago.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMetodosDPagoActionPerformed(evt);
-            }
-        });
-
         btnCancelarVuelo.setBackground(new java.awt.Color(14, 150, 203));
         btnCancelarVuelo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnCancelarVuelo.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,6 +239,17 @@ public String strHtml(String texto) {
             }
         });
 
+        btnCondiciones.setBackground(new java.awt.Color(14, 150, 203));
+        btnCondiciones.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCondiciones.setForeground(new java.awt.Color(255, 255, 255));
+        btnCondiciones.setText("CONDICIONES DE USO");
+        btnCondiciones.setBorder(null);
+        btnCondiciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCondicionesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -242,8 +260,11 @@ public String strHtml(String texto) {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancelarVuelo, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                     .addComponent(btnPrivacidad1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMetodosDPago, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                    .addComponent(btnComoReservar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnComoReservar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnCondiciones, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -253,13 +274,13 @@ public String strHtml(String texto) {
                 .addComponent(btnAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnComoReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCancelarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMetodosDPago, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCondiciones, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPrivacidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 160, 510));
@@ -271,17 +292,17 @@ public String strHtml(String texto) {
         pnlContenido.setLayout(pnlContenidoLayout);
         pnlContenidoLayout.setHorizontalGroup(
             pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlContenidoLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lbAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlContenidoLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addComponent(lbAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
         pnlContenidoLayout.setVerticalGroup(
             pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlContenidoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lbAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(lbAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         jPanel2.add(pnlContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 900, 510));
@@ -328,6 +349,9 @@ public String strHtml(String texto) {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAboutUsActionPerformed
+
+       AU ob= new AU();
+        showPanel(ob);
      
     }//GEN-LAST:event_btnAboutUsActionPerformed
 
@@ -338,24 +362,59 @@ PanelComoReservar panelComoreservar= new PanelComoReservar();
 
     }//GEN-LAST:event_btnComoReservarActionPerformed
 
-    private void btnMetodosDPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetodosDPagoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMetodosDPagoActionPerformed
-
     private void btnCancelarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVueloActionPerformed
+
+panelCancelarVuelo panelCancelar= new panelCancelarVuelo();
+        showPanel(panelCancelar);
+        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarVueloActionPerformed
 
     private void btnPrivacidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrivacidad1ActionPerformed
+
+
+        PanelPrivacidad pnlPrivacidad= new PanelPrivacidad();
+        showPanel(pnlPrivacidad);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPrivacidad1ActionPerformed
 
     private void btnVueloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVueloMouseEntered
-
+ 
+        btnVuelo.setBackground(new Color(16,160,216));
 
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVueloMouseEntered
+
+    private void btnCondicionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCondicionesActionPerformed
+
+        panelCondiciones panelCondiciones= new panelCondiciones();
+        showPanel(panelCondiciones);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCondicionesActionPerformed
+
+    private void btnVueloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVueloMouseExited
+ btnVuelo.setBackground(new Color(14,150,203));        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVueloMouseExited
+
+    private void btnMiVueloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMiVueloMouseExited
+ btnMiVuelo.setBackground(new Color(14,150,203));        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMiVueloMouseExited
+
+    private void btAboutUsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAboutUsMouseExited
+
+        btAboutUs.setBackground(new Color(14,150,203)); // TODO add your handling code here:
+    }//GEN-LAST:event_btAboutUsMouseExited
+
+    private void btnMiVueloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMiVueloMouseEntered
+btnMiVuelo.setBackground(new Color(16,160,216));        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMiVueloMouseEntered
+
+    private void btAboutUsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAboutUsMouseEntered
+btAboutUs.setBackground(new Color(16,160,216));        // TODO add your handling code here:
+    }//GEN-LAST:event_btAboutUsMouseEntered
 
     
 
@@ -364,7 +423,7 @@ PanelComoReservar panelComoreservar= new PanelComoReservar();
     private javax.swing.JButton btnAboutUs;
     private javax.swing.JButton btnCancelarVuelo;
     private javax.swing.JButton btnComoReservar;
-    private javax.swing.JButton btnMetodosDPago;
+    private javax.swing.JButton btnCondiciones;
     private javax.swing.JButton btnMiVuelo;
     private javax.swing.JButton btnPrivacidad1;
     private javax.swing.JButton btnSalir;

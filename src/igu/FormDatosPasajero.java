@@ -187,6 +187,9 @@ public class FormDatosPasajero extends javax.swing.JFrame {
         jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 407, -1));
 
         txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelefonoKeyTyped(evt);
             }
@@ -465,6 +468,15 @@ this.setVisible(false);
 
 
     }//GEN-LAST:event_txtTelefonoKeyTyped
+
+    private void txtTelefonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyPressed
+       
+        if(evt.getExtendedKeyCode()== evt.VK_ENTER){
+           btnGuardar.requestFocus();
+           btnGuardar.doClick();
+   
+    }
+    }//GEN-LAST:event_txtTelefonoKeyPressed
 
     ////preuba para obtener calve del avion
    // public String getClaveAvion(){

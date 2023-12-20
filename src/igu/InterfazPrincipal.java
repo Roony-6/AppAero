@@ -1,6 +1,7 @@
 
 package igu;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import logic.*;
 public class InterfazPrincipal extends javax.swing.JFrame {
@@ -194,6 +195,14 @@ public void llenarArrayResumen0(){
         btnVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/avionIcon.png"))); // NOI18N
         btnVuelo.setText("     VUELO");
         btnVuelo.setBorder(null);
+        btnVuelo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVueloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVueloMouseExited(evt);
+            }
+        });
         btnVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVueloActionPerformed(evt);
@@ -205,6 +214,14 @@ public void llenarArrayResumen0(){
         btnMiVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/suitcase (1).png"))); // NOI18N
         btnMiVuelo.setText(" MI VUELO");
         btnMiVuelo.setBorder(null);
+        btnMiVuelo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMiVueloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMiVueloMouseExited(evt);
+            }
+        });
         btnMiVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMiVueloActionPerformed(evt);
@@ -216,6 +233,14 @@ public void llenarArrayResumen0(){
         btAboutUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/info (1).png"))); // NOI18N
         btAboutUs.setText("INFO");
         btAboutUs.setBorder(null);
+        btAboutUs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btAboutUsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btAboutUsMouseExited(evt);
+            }
+        });
         btAboutUs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAboutUsActionPerformed(evt);
@@ -240,19 +265,18 @@ public void llenarArrayResumen0(){
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(btnVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnMiVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                        .addComponent(btAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))))
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnMiVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btAboutUs, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,6 +503,38 @@ abtUs.setLocationRelativeTo(null);
             
         }
     }//GEN-LAST:event_btnIncrementarActionPerformed
+
+    private void btnVueloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVueloMouseEntered
+
+
+        btnVuelo.setBackground(new Color(16,160,216));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVueloMouseEntered
+
+    private void btnVueloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVueloMouseExited
+
+        btnVuelo.setBackground(new Color(14,150,203));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVueloMouseExited
+
+    private void btnMiVueloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMiVueloMouseEntered
+       btnMiVuelo.setBackground(new Color(16,160,216));
+    }//GEN-LAST:event_btnMiVueloMouseEntered
+
+    private void btnMiVueloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMiVueloMouseExited
+
+         btnMiVuelo.setBackground(new Color(14,150,203));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMiVueloMouseExited
+
+    private void btAboutUsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAboutUsMouseEntered
+ btAboutUs.setBackground(new Color(16,160,216));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btAboutUsMouseEntered
+
+    private void btAboutUsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAboutUsMouseExited
+ btAboutUs.setBackground(new Color(14,150,203));        // TODO add your handling code here:
+    }//GEN-LAST:event_btAboutUsMouseExited
 
     //Este metodo obtiene el numero de pasajeros seleccionasdos
     public int getIdexPasajeros(){

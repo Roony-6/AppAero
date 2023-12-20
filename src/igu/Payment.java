@@ -23,6 +23,9 @@ public class Payment extends javax.swing.JFrame {
 
     
     String claveAvionn="";
+    String origen="";
+    String destino="";
+    String fecha="";
     String clavePas="";
 
     String claveReserva;
@@ -43,7 +46,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
+        lbPago = new javax.swing.JLabel();
         lbmostrarDisponible = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -63,6 +66,11 @@ public class Payment extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         btnHome = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -117,8 +125,8 @@ public class Payment extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 90));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/billetera.png"))); // NOI18N
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 110, 40, 40));
+        lbPago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/billetera.png"))); // NOI18N
+        jPanel1.add(lbPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 110, 40, 40));
 
         lbmostrarDisponible.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
         lbmostrarDisponible.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/garrapata.png"))); // NOI18N
@@ -196,6 +204,9 @@ public class Payment extends javax.swing.JFrame {
         jPanel1.add(txtVigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 190, 30));
 
         txtClave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtClaveKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtClaveKeyTyped(evt);
             }
@@ -230,6 +241,28 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 590, 450, 40));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/calendario.png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 40, 50));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/us.png"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 40, 50));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clave.png"))); // NOI18N
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 490, 40, 50));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tarjeta.png"))); // NOI18N
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 40, 50));
+
+        btnAtras.setBackground(new java.awt.Color(255, 255, 255));
+        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png"))); // NOI18N
+        btnAtras.setBorder(null);
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 50, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -336,10 +369,37 @@ public class Payment extends javax.swing.JFrame {
     }//GEN-LAST:event_txtVigenciaKeyTyped
 
     private void txtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClaveKeyTyped
-        // TODO add your handling code here:
+
+
+      
+
     }//GEN-LAST:event_txtClaveKeyTyped
+
+    private void txtClaveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClaveKeyPressed
+
+
+        if(evt.getExtendedKeyCode()== evt.VK_ENTER){
+           btnPago.requestFocus();
+           btnPago.doClick();
+   
+    }
+        
+
+        
+    }//GEN-LAST:event_txtClaveKeyPressed
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+
+        FormDatosPasajero formPaas= new FormDatosPasajero();
+        formPaas.setVisible(true);
+        this.setVisible(false);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtrasActionPerformed
  boolean camposLlenos=false;
  Reserva objectReserva= new Reserva();
+ 
+ 
     public void comprobarCamposLlenos(){
         
        
@@ -366,7 +426,8 @@ public class Payment extends javax.swing.JFrame {
         
             camposLlenos=true;
             JOptionPane.showMessageDialog(null,"Reservacion realizada correctamente");
-            
+            lbPago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/garrapata.png")));
+           
             btnHome.setVisible(true);
             pdf();
         }
@@ -415,6 +476,7 @@ public class Payment extends javax.swing.JFrame {
     BufferedImage bufferedImage = ImageIO.read(fileImagen);
     
        byte[] imageBytes = convertirImagenABytes(bufferedImage);
+       
             
     
     
@@ -433,6 +495,7 @@ public class Payment extends javax.swing.JFrame {
             header.getDefaultCell().setBorder(0);
             float[] columnsHeader = new float[]{30f,40f, 46f, 36f};
             header.setWidths(columnsHeader);
+            
             header.setHorizontalAlignment(Element.ALIGN_LEFT);
            header.addCell(Image.getInstance(imageBytes));
             header.addCell("");
@@ -447,8 +510,15 @@ public class Payment extends javax.swing.JFrame {
             
             
             
+            PdfPTable body= new PdfPTable(1);
+            body.getDefaultCell().setBorder(0);
+            float[] columnsBody = new float[]{50f,50f};
+            body.setWidthPercentage(100);
+            body.setHorizontalAlignment(Element.ALIGN_LEFT);
+            body.addCell("Tu clave de reserva es: "+claveReserva);
             
-            
+            //body.addCell("Clave Pasajero: "+""+"\nNombre: "+""+"\nApellido: "+""+"\nEdad: "+""+"\nContacto: ");
+            documento.add(body);
             documento.close();
             archivo.close();
             System.out.println("Pdf creado exitosamente");
@@ -472,6 +542,7 @@ public class Payment extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnPago;
     private javax.swing.JButton btnSalir;
@@ -479,6 +550,7 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -486,11 +558,14 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel lbPago;
     private javax.swing.JLabel lbmostrarDisponible;
     private javax.swing.JLabel lbmostrarDisponible1;
     private javax.swing.JTextField txtClave;
