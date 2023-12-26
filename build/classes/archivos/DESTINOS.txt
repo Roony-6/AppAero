@@ -1,0 +1,7 @@
+D1,Ciudad de mexico
+D2,Quintana Roo
+D3,Guadalajara
+D4,Sonora
+D5,Veracruz
+D6,Yucatan
+D7,Estado de Mexico

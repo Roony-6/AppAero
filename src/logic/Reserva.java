@@ -44,7 +44,7 @@ public class Reserva  {
 
     public String getClaveReserva(){
         try{
-            FileReader fr= new FileReader("E:\\ARCHIVO_DESARROLLO\\RESERVAS.txt");
+            FileReader fr= new FileReader("src/archivos/RESERVAS.txt");
             BufferedReader br= new BufferedReader(fr);   
             
             String linea;

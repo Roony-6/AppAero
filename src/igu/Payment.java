@@ -472,7 +472,7 @@ public class Payment extends javax.swing.JFrame {
             documento.open();
            // Image logo= new Image.getInstance("E:\\Avance\\AppAerolinea\\src\\Images\\burrologo.png") 
             //;
-             File fileImagen=new File("E:\\Avance\\AppAerolinea\\src\\Images\\burrologo.png");
+             File fileImagen=new File("src\\Images\\burrologo.png");
     BufferedImage bufferedImage = ImageIO.read(fileImagen);
     
        byte[] imageBytes = convertirImagenABytes(bufferedImage);

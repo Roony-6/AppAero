@@ -364,7 +364,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
             documento.open();
            // Image logo= new Image.getInstance("E:\\Avance\\AppAerolinea\\src\\Images\\burrologo.png") 
             //;
-             File fileImagen=new File("E:\\Avance\\AppAerolinea\\src\\Images\\burrologo.png");
+             File fileImagen=new File("src\\Images\\burrologo.png");
     BufferedImage bufferedImage = ImageIO.read(fileImagen);
     
        byte[] imageBytes = convertirImagenABytes(bufferedImage);
@@ -481,7 +481,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
      boolean encontrado=false;
           setClaveReserva(inputclaveReserva);
         try{
-         FileReader frReservas= new FileReader("E:\\ARCHIVO_DESARROLLO\\RESERVAS.txt");
+         FileReader frReservas= new FileReader("src/archivos/RESERVAS.txt");
          BufferedReader br= new BufferedReader(frReservas);
          String linea;
          while((linea=br.readLine())!=null){
@@ -521,7 +521,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
 
          String datos="";
         try{
-            FileReader frPasajero= new FileReader("E:\\ARCHIVO_DESARROLLO\\Pasajeros.txt");
+            FileReader frPasajero= new FileReader("src/archivos/Pasajeros.txt");
             BufferedReader brPasajeros= new BufferedReader(frPasajero);
             String linea;
             
@@ -564,7 +564,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
            String datosAvionNecesarios="";
            
            try{
-                FileReader frPasajero= new FileReader("E:\\ARCHIVO_DESARROLLO\\AVIONES.txt");
+                FileReader frPasajero= new FileReader("src/archivos/AVIONES.txt");
             BufferedReader brPasajeros= new BufferedReader(frPasajero);
             String linea;
             
@@ -613,7 +613,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
        public String getDestino(String claveDestino){
            String dest="";
            try{
-            FileReader frPasajero= new FileReader("E:\\ARCHIVO_DESARROLLO\\DESTINOS.txt");
+            FileReader frPasajero= new FileReader("src/archivos/DESTINOS.txt");
             BufferedReader brPasajeros= new BufferedReader(frPasajero);
             String linea;
             
@@ -663,7 +663,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
 
     public  void modificarRegistro(String cadenaModificada,String registroAModificar) {
         try {
-            FileReader fr= new FileReader("E:\\ARCHIVO_DESARROLLO\\Pasajeros.txt");
+            FileReader fr= new FileReader("src/archivos/Pasajeros.txt");
             BufferedReader br= new BufferedReader(fr);
             String linea;
             
@@ -692,7 +692,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
             br.close();
             
             
-              FileWriter fw = new FileWriter("E:\\ARCHIVO_DESARROLLO\\Pasajeros.txt");
+              FileWriter fw = new FileWriter("src/archivos/Pasajeros.txt");
             BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(nuevoContenido.toString());
@@ -708,8 +708,8 @@ public class PnlDatosReserva extends javax.swing.JPanel {
      public static void borrarRegistro( String claveReserva) {
         try {
             // Ruta del archivo
-            File file = new File("E:\\ARCHIVO_DESARROLLO\\RESERVAS.txt");
-            File file2= new File("E:\\ARCHIVO_DESARROLLO\\Pasajeros.txt");
+            File file = new File("src/archivos/RESERVAS.txt");
+            File file2= new File("src/archivos/Pasajeros.txt");
 
             // Clave del usuario a dar de baja
             String claveVuelo = claveReserva;
@@ -765,7 +765,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
         try {
             // Ruta del archivo
             
-            File file2= new File("E:\\ARCHIVO_DESARROLLO\\Pasajeros.txt");
+            File file2= new File("src/archivos/Pasajeros.txt");
 
             // Clave del usuario a dar de baja
             String clavePasajer = clavePasajero;

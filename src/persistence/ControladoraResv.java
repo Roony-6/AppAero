@@ -10,7 +10,7 @@ public class ControladoraResv {
     //a falta de base de datos, guardamos los datos en un array para que el archivo solo se lea una vez
     public ArrayList<ArchVuelos> arrayOrigenes= new ArrayList<ArchVuelos>();
     public void leerArchivoOrigenes(){//metodo para leer el archivo origenes
-        try(FileReader frOrigenes= new FileReader("E:\\ARCHIVO_DESARROLLO\\ORIGEN.txt");
+        try(FileReader frOrigenes= new FileReader("src/archivos/ORIGEN.txt");
             BufferedReader br= new BufferedReader(frOrigenes);){
             
             String linea;
@@ -29,7 +29,7 @@ public class ControladoraResv {
     }
     public ArrayList<ArchVuelos> arrayDestinos= new ArrayList<ArchVuelos>();
     public void leerArchivoDestinos(){//metodo para leer el archivo destinos
-        try(FileReader frDestinos= new FileReader("E:\\ARCHIVO_DESARROLLO\\DESTINOS.txt");
+        try(FileReader frDestinos= new FileReader("src/archivos/DESTINO.txt");
                     BufferedReader brDestinos= new BufferedReader(frDestinos);){
             
                     String linea;
@@ -50,7 +50,7 @@ public class ControladoraResv {
     
     public ArrayList<ArchVuelos> arrayAviones= new ArrayList<ArchVuelos>();
     public void leerArchivoAviones(){//metodo para leer el archivo aviones
-        try(FileReader frAviones= new FileReader("E:\\ARCHIVO_DESARROLLO\\AVIONES.txt");
+        try(FileReader frAviones= new FileReader("src/archivos/AVIONES.txt");
             BufferedReader brAviones= new BufferedReader(frAviones);){
             
             String linea;

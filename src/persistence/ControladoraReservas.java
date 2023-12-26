@@ -15,7 +15,7 @@ public class ControladoraReservas {
     public void guardarReserva(Reserva objectReservas){
         
         try{
-            FileWriter fw= new FileWriter("E:\\ARCHIVO_DESARROLLO\\RESERVAS.txt", true);
+            FileWriter fw= new FileWriter("src/archivos/RESERVAS.txt", true);
             BufferedWriter bw= new BufferedWriter(fw);
 
             bw.write(objectReservas.toString());
@@ -34,7 +34,7 @@ public class ControladoraReservas {
     
      public String getUltimaClaveReserva(){
         try{
-            FileReader fr= new FileReader("E:\\ARCHIVO_DESARROLLO\\RESERVAS.txt");
+            FileReader fr= new FileReader("src/archivos/RESERVAS.txt");
             BufferedReader br= new BufferedReader(fr);   
             
             String linea;
@@ -57,7 +57,7 @@ public class ControladoraReservas {
     Reserva arrayReservas[]= new Reserva[1];
     public void readArchivoReservas(){
         try{
-            FileReader fr= new FileReader("E:\\ARCHIVO_DESARROLLO\\RESERVAS.txt");
+            FileReader fr= new FileReader("src/archivos/RESERVAS.txt");
             BufferedReader br= new BufferedReader(fr);   
             
             String linea;

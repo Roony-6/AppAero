@@ -1,0 +1,7 @@
+O1,Ciudad de Mexico
+O2,Qintana Roo
+O3,Guadalajara
+O4,Sonora
+O5,Veracruz
+O6,Yucatan
+O7,Estado de Mexico

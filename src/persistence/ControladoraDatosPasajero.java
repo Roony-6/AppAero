@@ -20,7 +20,7 @@ public class ControladoraDatosPasajero {
         
     try{
        
-        FileWriter fw= new FileWriter("E:\\ARCHIVO_DESARROLLO\\Pasajeros.txt", true);
+        FileWriter fw= new FileWriter("src/archivos/Pasajeros.txt", true);
         BufferedWriter bw= new BufferedWriter(fw);
         
         bw.write(objDatosPas.toString());

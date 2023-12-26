@@ -1,1 +1,32 @@
-/dist/
+# Ignorar carpetas de sistema
+Configuración\ local/
+Cookies/
+Datos\ de\ programa/
+Documents/Mi\ música/
+Documents/Mis\ imágenes/
+Documents/Mis\ vídeos/
+Entorno\ de\ red/
+Impresoras/
+Menú\ Inicio/
+Mis\ documentos/
+Plantillas/
+Reciente/
+SendTo/
+
+# Ignorar archivos específicos
+.bash_history
+.gitconfig
+.packettracer
+.viminfo
+
+# Ignorar carpetas de usuario
+AppData/
+Application\ Data/
+Contacts/
+Downloads/
+Favorites/
+Links/
+Music/
+Saved\ Games/
+Searches/
+Videos/
