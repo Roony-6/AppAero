@@ -31,5 +31,8 @@ Otros requisitos específicos enumerados en requirements.txt
 CONTRIBUCIONES:
 ¡Contribuciones son bienvenidas! Si encuentras algún problema o tienes sugerencias, por favor abre un problema o envía una solicitud de extracción.
 
-![Formulario datos](https://github.com/Roony-6/AppAero/assets/145934166/886522ca-9f2f-4283-a615-ade1267ec69b)
+
 ![Interfaz principal](https://github.com/Roony-6/AppAero/assets/145934166/967fc8e0-ddae-495e-8f77-64eb5689142f)
+![Formulario datos](https://github.com/Roony-6/AppAero/assets/145934166/886522ca-9f2f-4283-a615-ade1267ec69b)
+![rastrear](https://github.com/Roony-6/AppAero/assets/145934166/ac58902f-7630-47e3-b436-ffcc13d98cbe)
+![pago](https://github.com/Roony-6/AppAero/assets/145934166/f17537b5-1680-48c4-8d7b-3860b18285ef)
