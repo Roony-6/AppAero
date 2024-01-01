@@ -1,5 +1,4 @@
-![Formulario datos](https://github.com/Roony-6/AppAero/assets/145934166/886522ca-9f2f-4283-a615-ade1267ec69b)
-![Interfaz principal](https://github.com/Roony-6/AppAero/assets/145934166/967fc8e0-ddae-495e-8f77-64eb5689142f)
+
 Reserva de Vuelos en Java - Aplicación con Interfaz Intuitiva 🛫
 
 Esta aplicación de reserva de vuelos está completamente desarrollada en Java, ofreciendo a los usuarios una interfaz intuitiva y amigable para realizar reservas de vuelos de manera sencilla. La persistencia de datos se gestiona mediante archivos de texto (txt).
@@ -31,3 +30,6 @@ JDK(versión 11 o superior)
 Otros requisitos específicos enumerados en requirements.txt
 CONTRIBUCIONES:
 ¡Contribuciones son bienvenidas! Si encuentras algún problema o tienes sugerencias, por favor abre un problema o envía una solicitud de extracción.
+
+![Formulario datos](https://github.com/Roony-6/AppAero/assets/145934166/886522ca-9f2f-4283-a615-ade1267ec69b)
+![Interfaz principal](https://github.com/Roony-6/AppAero/assets/145934166/967fc8e0-ddae-495e-8f77-64eb5689142f)
