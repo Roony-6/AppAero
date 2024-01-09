@@ -15,12 +15,16 @@ public class ControladoraReservas {
     public void guardarReserva(Reserva objectReservas){
         
         try{
-            FileWriter fw= new FileWriter("src/archivos/RESERVAS.txt", true);
+           // String rutaArchivo = System.getProperty("user.home") + File.separator + "archivos/RESERVAS.txt";
+           String rutaArchivo = System.getProperty("user.dir") + File.separator + "src" + File.separator + "archivos" + File.separator + "RESERVAS.txt";
+           
+            FileWriter fw= new FileWriter(rutaArchivo, true);
             BufferedWriter bw= new BufferedWriter(fw);
 
             bw.write(objectReservas.toString());
             bw.newLine();
-            bw.close();
+           //si no funciona lo descomento
+           bw.close();
             
             
             
@@ -34,8 +38,10 @@ public class ControladoraReservas {
     
      public String getUltimaClaveReserva(){
         try{
-            FileReader fr= new FileReader("src/archivos/RESERVAS.txt");
-            BufferedReader br= new BufferedReader(fr);   
+            //FileReader fr= new FileReader("/archivos/RESERVAS.txt");
+            //BufferedReader br= new BufferedReader(fr);   
+             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/RESERVAS.txt");
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
             
             String linea;
             
@@ -57,9 +63,10 @@ public class ControladoraReservas {
     Reserva arrayReservas[]= new Reserva[1];
     public void readArchivoReservas(){
         try{
-            FileReader fr= new FileReader("src/archivos/RESERVAS.txt");
-            BufferedReader br= new BufferedReader(fr);   
-            
+        //    FileReader fr= new FileReader("/archivos/RESERVAS.txt");
+          //  BufferedReader br= new BufferedReader(fr);   
+             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/RESERVAS.txt");
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
             String linea;
             while((linea=br.readLine())!=null){
                 

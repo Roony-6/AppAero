@@ -4,6 +4,8 @@ package logic;
 import igu.FormDatosPasajero;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Reserva  {
@@ -44,9 +46,11 @@ public class Reserva  {
 
     public String getClaveReserva(){
         try{
-            FileReader fr= new FileReader("src/archivos/RESERVAS.txt");
-            BufferedReader br= new BufferedReader(fr);   
+            //FileReader fr= new FileReader("/archivos/RESERVAS.txt");
+            //BufferedReader br= new BufferedReader(fr);   
             
+             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/RESERVAS.txt");
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
             String linea;
             
             while((linea=br.readLine())!=null){

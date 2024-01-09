@@ -18,6 +18,9 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.StringTokenizer;
@@ -351,7 +354,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
         try{
             FileOutputStream archivo;
    
-            File file = new File("E:\\Avance\\pdf\\Reporte_Reserva_"+claveReserva+".pdf");
+            File file = new File("src/pdf/Reporte_Reserva_"+claveReserva+".pdf");
             archivo= new FileOutputStream(file);
          
                 // Ruta de la imagen
@@ -364,7 +367,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
             documento.open();
            // Image logo= new Image.getInstance("E:\\Avance\\AppAerolinea\\src\\Images\\burrologo.png") 
             //;
-             File fileImagen=new File("src\\Images\\burrologo.png");
+             File fileImagen=new File("\\Images\\burrologo.png");
     BufferedImage bufferedImage = ImageIO.read(fileImagen);
     
        byte[] imageBytes = convertirImagenABytes(bufferedImage);
@@ -481,8 +484,10 @@ public class PnlDatosReserva extends javax.swing.JPanel {
      boolean encontrado=false;
           setClaveReserva(inputclaveReserva);
         try{
-         FileReader frReservas= new FileReader("src/archivos/RESERVAS.txt");
-         BufferedReader br= new BufferedReader(frReservas);
+        // FileReader frReservas= new FileReader("/archivos/RESERVAS.txt");
+         //BufferedReader br= new BufferedReader(frReservas);
+          InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/Reservas.txt");
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
          String linea;
          while((linea=br.readLine())!=null){
              StringTokenizer tokens= new StringTokenizer(linea,",");
@@ -521,8 +526,10 @@ public class PnlDatosReserva extends javax.swing.JPanel {
 
          String datos="";
         try{
-            FileReader frPasajero= new FileReader("src/archivos/Pasajeros.txt");
-            BufferedReader brPasajeros= new BufferedReader(frPasajero);
+            //FileReader frPasajero= new FileReader("/archivos/Pasajeros.txt");
+            //BufferedReader brPasajeros= new BufferedReader(frPasajero);
+             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/Pasajeros.txt");
+             BufferedReader brPasajeros = new BufferedReader(new InputStreamReader(inputStream));
             String linea;
             
             while((linea=brPasajeros.readLine())!=null){
@@ -564,8 +571,10 @@ public class PnlDatosReserva extends javax.swing.JPanel {
            String datosAvionNecesarios="";
            
            try{
-                FileReader frPasajero= new FileReader("src/archivos/AVIONES.txt");
-            BufferedReader brPasajeros= new BufferedReader(frPasajero);
+                //FileReader frPasajero= new FileReader("/archivos/AVIONES.txt");
+            //BufferedReader brPasajeros= new BufferedReader(frPasajero);
+             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/AVIONES.txt");
+             BufferedReader brPasajeros = new BufferedReader(new InputStreamReader(inputStream));
             String linea;
             
             while((linea=brPasajeros.readLine())!=null){
@@ -613,8 +622,10 @@ public class PnlDatosReserva extends javax.swing.JPanel {
        public String getDestino(String claveDestino){
            String dest="";
            try{
-            FileReader frPasajero= new FileReader("src/archivos/DESTINOS.txt");
-            BufferedReader brPasajeros= new BufferedReader(frPasajero);
+            //FileReader frPasajero= new FileReader("/archivos/DESTINOS.txt");
+           // BufferedReader brPasajeros= new BufferedReader(frPasajero);
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/DESTINOS.txt");
+             BufferedReader brPasajeros = new BufferedReader(new InputStreamReader(inputStream));
             String linea;
             
             while((linea=brPasajeros.readLine())!=null){
@@ -662,9 +673,13 @@ public class PnlDatosReserva extends javax.swing.JPanel {
   
 
     public  void modificarRegistro(String cadenaModificada,String registroAModificar) {
-        try {
-            FileReader fr= new FileReader("src/archivos/Pasajeros.txt");
-            BufferedReader br= new BufferedReader(fr);
+        /*try {
+            //FileReader fr= new FileReader("/archivos/Pasajeros.txt");
+            //BufferedReader br= new BufferedReader(fr);
+             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/Pasajeros.txt");
+                     String rutaArchivo = System.getProperty("user.dir") + File.separator + "src" + File.separator + "archivos" + File.separator + "Pasajeros.txt";
+                     
+             BufferedReader br = new BufferedReader(new FileReader(rutaArchivo));
             String linea;
             
             StringBuilder nuevoContenido = new StringBuilder();
@@ -691,25 +706,65 @@ public class PnlDatosReserva extends javax.swing.JPanel {
             // Cierra los flujos
             br.close();
             
-            
-              FileWriter fw = new FileWriter("src/archivos/Pasajeros.txt");
+           //String rutaArchivo = System.getProperty("user.home") + File.separator + "Pasajeros.txt";
+                   String rutaArchivos = System.getProperty("user.dir") + File.separator + "src" + File.separator + "archivos" + File.separator + "Pasajeros.txt";
+              FileWriter fw = new FileWriter(rutaArchivos);
             BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(nuevoContenido.toString());
-            bw.close();
+           // bw.close();
             
 
         } catch (Throwable e) {
             e.printStackTrace();
         }
+        
+        
+        */
+         try {
+            String rutaArchivo = System.getProperty("user.dir") + File.separator + "src" + File.separator + "archivos" + File.separator + "Pasajeros.txt";
+             RandomAccessFile randomAccessFile = new RandomAccessFile(rutaArchivo, "rw");
+
+            String linea;
+            StringBuilder nuevoContenido = new StringBuilder();
+
+            while ((linea = randomAccessFile.readLine()) != null) {
+                if (linea.equals(registroAModificar)) {
+                    // Modificar la edad en el registro
+                    String[] partes = linea.split(",");
+                    partes[4] = String.valueOf(cadenaModificada);
+                    linea = String.join(",", partes);
+                }
+                nuevoContenido.append(linea).append("\n");
+            }
+
+            // Volver al principio del archivo para escribir el nuevo contenido
+            randomAccessFile.seek(0);
+            randomAccessFile.setLength(0); // Limpiar el archivo antes de escribir el nuevo contenido
+
+            // Escribir el nuevo contenido en el archivo
+            randomAccessFile.writeBytes(nuevoContenido.toString());
+
+            // Cerrar el RandomAccessFile
+            randomAccessFile.close();
+            JOptionPane.showMessageDialog(null, "El numero de telefono se ha modificadoi exitosamente");
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        
+    }
+        
+        
+        
     }
     
-    
+    /*
      public static void borrarRegistro( String claveReserva) {
         try {
             // Ruta del archivo
-            File file = new File("src/archivos/RESERVAS.txt");
-            File file2= new File("src/archivos/Pasajeros.txt");
+            File file = new File("/archivos/RESERVAS.txt");
+            
+            File file2= new File("/archivos/Pasajeros.txt");
 
             // Clave del usuario a dar de baja
             String claveVuelo = claveReserva;
@@ -765,7 +820,7 @@ public class PnlDatosReserva extends javax.swing.JPanel {
         try {
             // Ruta del archivo
             
-            File file2= new File("src/archivos/Pasajeros.txt");
+            File file2= new File("/archivos/Pasajeros.txt");
 
             // Clave del usuario a dar de baja
             String clavePasajer = clavePasajero;
@@ -810,11 +865,94 @@ public class PnlDatosReserva extends javax.swing.JPanel {
             e.printStackTrace();
         }
     }
+*/
+       
+    
+   private static final String RUTA_PASAJEROS = System.getProperty("user.dir") + File.separator + "src" + File.separator + "archivos" + File.separator + "Pasajeros.txt";
+    private static final String RUTA_RESERVAS = System.getProperty("user.dir") + File.separator + "src" + File.separator + "archivos" + File.separator + "RESERVAS.txt";
 
-       
-       
-       
-       
+    public static void borrarRegistro(String claveReserva) {
+        try {
+            // Ruta del archivo RESERVAS
+            BufferedReader brReservas = new BufferedReader(new FileReader(RUTA_RESERVAS));
+
+            // Clave del usuario a dar de baja
+            String claveVuelo = claveReserva;
+
+            // Leer el archivo RESERVAS
+            StringBuilder nuevoContenidoReservas = new StringBuilder();
+            String lineaActualReservas;
+            while ((lineaActualReservas = brReservas.readLine()) != null) {
+                // Verificar si la línea contiene la clave a dar de baja
+                if (lineaActualReservas.startsWith(claveVuelo + ",")) {
+                    StringTokenizer tok = new StringTokenizer(lineaActualReservas, ",");
+                    String cR = tok.nextToken().trim();
+                    String cPasajero = tok.nextToken().trim();
+
+                    // Llamar al método para borrar el registro correspondiente en Pasajeros.txt
+                    borrarRegistroPasajero(cPasajero);
+                    // Se encuentra la clave, se omite la escritura y se elimina el registro
+                    continue;
+                }
+                nuevoContenidoReservas.append(lineaActualReservas).append("\n");
+            }
+            brReservas.close();
+
+            // Imprimir el archivo RESERVAS modificado en consola
+            System.out.println("Archivo RESERVAS modificado:");
+            System.out.println(nuevoContenidoReservas.toString());
+
+            // Guardar el contenido modificado en el archivo RESERVAS
+            guardarContenidoEnArchivo(RUTA_RESERVAS, nuevoContenidoReservas.toString());
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void borrarRegistroPasajero(String clavePasajero) {
+        try {
+            // Ruta del archivo Pasajeros
+            BufferedReader brPasajeros = new BufferedReader(new FileReader(RUTA_PASAJEROS));
+
+            // Clave del usuario a dar de baja
+            String clavePasajer = clavePasajero;
+
+            // Leer el archivo Pasajeros
+            StringBuilder nuevoContenidoPasajeros = new StringBuilder();
+            String lineaActualPasajeros;
+            while ((lineaActualPasajeros = brPasajeros.readLine()) != null) {
+                // Verificar si la línea contiene la clave a dar de baja
+                if (lineaActualPasajeros.startsWith(clavePasajer + ",")) {
+                    // Se encuentra la clave, se omite la escritura y se elimina el registro
+                    continue;
+                }
+                nuevoContenidoPasajeros.append(lineaActualPasajeros).append("\n");
+            }
+            brPasajeros.close();
+
+            // Imprimir el archivo Pasajeros modificado en consola
+            System.out.println("Archivo Pasajeros modificado:");
+            System.out.println(nuevoContenidoPasajeros.toString());
+
+            // Guardar el contenido modificado en el archivo Pasajeros
+            guardarContenidoEnArchivo(RUTA_PASAJEROS, nuevoContenidoPasajeros.toString());
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void guardarContenidoEnArchivo(String rutaArchivo, String contenido) {
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile(rutaArchivo, "rw")) {
+            randomAccessFile.seek(0);
+            randomAccessFile.setLength(0);
+            randomAccessFile.writeBytes(contenido);
+            JOptionPane.showMessageDialog(null, "Vuelo cancelado exitosamente...");
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
        
        
        

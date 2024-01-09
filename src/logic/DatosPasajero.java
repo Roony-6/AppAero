@@ -62,6 +62,7 @@ public class DatosPasajero {
         ControladoraDatosPasajero controladoraPasajero= new ControladoraDatosPasajero();
         
         controladoraPasajero.archivoPasajeros(arraDatosPasajero[0]);
+        
         System.out.println("Guardé los datos correctamente...");
           
     }

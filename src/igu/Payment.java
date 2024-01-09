@@ -459,7 +459,7 @@ public class Payment extends javax.swing.JFrame {
         try{
             FileOutputStream archivo;
    
-            File file = new File("E:\\Avance\\pdf\\Ticket_Reserva_"+claveReserva+".pdf");
+            File file = new File("src/pdf/Ticket_Reserva_"+claveReserva+".pdf");
             archivo= new FileOutputStream(file);
          
                 // Ruta de la imagen

@@ -68,9 +68,11 @@ public class RastreoVuelo extends DatosPasajero{
     public boolean rastrearVuelo(String inputclaveReserva,javax.swing.JLabel lbVueloEncontrado,javax.swing.JPanel pnlContenido){
      boolean encontrado=false;
         try{
-         FileReader frReservas= new FileReader("src/archivos/RESERVAS.txt");
-         BufferedReader br= new BufferedReader(frReservas);
+       // FileReader frReservas= new FileReader("/archivos/RESERVAS.txt");
+         //BufferedReader br= new BufferedReader(frReservas);
 
+          InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/RESERVAS.txt");
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
          String linea;
          
          while((linea=br.readLine())!=null){
@@ -150,8 +152,10 @@ public class RastreoVuelo extends DatosPasajero{
 
          String datos="";
         try{
-            FileReader frPasajero= new FileReader("src/archivos/Pasajeros.txt");
-            BufferedReader brPasajeros= new BufferedReader(frPasajero);
+            //FileReader frPasajero= new FileReader("/archivos/Pasajeros.txt");
+            //BufferedReader brPasajeros= new BufferedReader(frPasajero);
+             InputStream inputStream = getClass().getClassLoader().getResourceAsStream("archivos/Pasajeros.txt");
+             BufferedReader brPasajeros = new BufferedReader(new InputStreamReader(inputStream));
             String linea;
             
             while((linea=brPasajeros.readLine())!=null){

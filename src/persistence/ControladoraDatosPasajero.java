@@ -20,7 +20,9 @@ public class ControladoraDatosPasajero {
         
     try{
        
-        FileWriter fw= new FileWriter("src/archivos/Pasajeros.txt", true);
+        //String rutaArchivo = System.getProperty("user.home") + File.separator + "AppAerolinea\\AppAero\\archivos\\Pasajeros.txt";
+        String rutaArchivo = System.getProperty("user.dir") + File.separator + "src" + File.separator + "archivos" + File.separator + "Pasajeros.txt";
+        FileWriter fw= new FileWriter(rutaArchivo, true);
         BufferedWriter bw= new BufferedWriter(fw);
         
         bw.write(objDatosPas.toString());

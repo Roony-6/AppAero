@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/igu/PanelPrivacidad.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/igu/Payment.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/archivos/RESERVAS.txt</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/igu/InterfazPrincipal.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/archivos/Pasajeros.txt</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/igu/RastrearVuelo.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/igu/PnlDatosReserva.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/persistence/ControladoraResv.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/persistence/ControladoraReservas.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/logic/Reserva.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/persistence/ControladoraDatosPasajero.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/logic/RastreoVuelo.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/logic/DatosPasajero.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/logic/ArchVuelos.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/igu/PanelComoReservar.java</file>
+            <file>file:/C:/Users/roony/OneDrive/Escritorio/AppAerolinea/AppAero/src/igu/FormDatosPasajero.java</file>
+        </group>
     </open-files>
 </project-private>
